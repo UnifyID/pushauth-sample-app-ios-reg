@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="PushAuth_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pOn-qW-bCQ" userLabel="Wrapper Stack View">
+                                <rect key="frame" x="15" y="254" width="384" height="398.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PushAuth Sample" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR6-66-bdh">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                                        <color key="textColor" name="Text Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'll receive PushAuth requests on this screen." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnt-oC-fij">
+                                        <rect key="frame" x="0.0" y="49" width="384" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                        <color key="textColor" name="Text Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry3-DE-wSH">
+                                        <rect key="frame" x="0.0" y="112" width="384" height="286.5"/>
+                                        <mutableString key="text">1. Set up your UnifyID user and SDK key using the "Configure" button below.  2. Press "Allow" when the app requests to receive push notifications.  3. Start a PushAuth session for the configured user. See the README for an example.  4. Voila, you just received a PushAuth request! 🎉</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" name="Text Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-WJ-sGE">
+                                <rect key="frame" x="155.5" y="803" width="103" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Configure">
+                                    <color key="titleColor" name="Button Color"/>
+                                </state>
+                                <connections>
+                                    <segue destination="A3G-Gc-MEn" kind="show" id="L6y-SK-vHO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pOn-qW-bCQ" secondAttribute="trailing" constant="15" id="HTh-ia-713"/>
+                            <constraint firstItem="tfX-WJ-sGE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RKC-xe-w3J"/>
+                            <constraint firstItem="pOn-qW-bCQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" priority="750" id="U9C-Sv-grv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tfX-WJ-sGE" secondAttribute="bottom" priority="800" constant="20" id="W2f-Hp-IO5"/>
+                            <constraint firstItem="pOn-qW-bCQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XN2-nK-Pxq"/>
+                            <constraint firstItem="pOn-qW-bCQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Yu1-lv-hG4"/>
+                            <constraint firstItem="tfX-WJ-sGE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pOn-qW-bCQ" secondAttribute="bottom" id="ctL-db-ew9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--Config View Controller-->
+        <scene sceneID="Yra-sA-Y1o">
+            <objects>
+                <viewController id="A3G-Gc-MEn" customClass="ConfigViewController" customModule="PushAuth_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wO1-SM-0Xk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jt1-Oz-iz9">
+                                <rect key="frame" x="12" y="8" width="60" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="Button Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissPage:" destination="A3G-Gc-MEn" eventType="touchUpInside" id="vgq-kj-Rqk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PushAuth Configuration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3j-tv-woJ">
+                                <rect key="frame" x="24" y="285" width="366" height="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                <color key="textColor" name="Text Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHh-m0-M92" userLabel="Credentials Wrapper View">
+                                <rect key="frame" x="20" y="325" width="374" height="78"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SDK Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6l-nk-Yel" userLabel="SDK Key Text Field">
+                                        <rect key="frame" x="8" y="10" width="358" height="18.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18.5" id="QcV-i3-Bg6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="gka-ad-31i" userLabel="Border View">
+                                        <rect key="frame" x="0.0" y="38.5" width="374" height="1"/>
+                                        <color key="backgroundColor" name="Background Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Cfm-zY-TuZ"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsC-lm-HbX" userLabel="User Text Field">
+                                        <rect key="frame" x="8" y="49.5" width="358" height="18.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18.5" id="cO4-Nt-7mg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gsC-lm-HbX" secondAttribute="bottom" constant="10" id="2ma-si-jJt"/>
+                                    <constraint firstAttribute="trailing" secondItem="gka-ad-31i" secondAttribute="trailing" id="3Sr-oK-WLQ"/>
+                                    <constraint firstItem="gka-ad-31i" firstAttribute="top" secondItem="r6l-nk-Yel" secondAttribute="bottom" constant="10" id="3XE-8g-Fue"/>
+                                    <constraint firstItem="gsC-lm-HbX" firstAttribute="top" secondItem="gka-ad-31i" secondAttribute="bottom" constant="10" id="6pY-0W-Fk8"/>
+                                    <constraint firstItem="r6l-nk-Yel" firstAttribute="leading" secondItem="gHh-m0-M92" secondAttribute="leading" constant="8" id="Af8-7G-EsT"/>
+                                    <constraint firstItem="gsC-lm-HbX" firstAttribute="leading" secondItem="r6l-nk-Yel" secondAttribute="leading" id="Fcl-Fj-ATH"/>
+                                    <constraint firstItem="r6l-nk-Yel" firstAttribute="top" secondItem="gHh-m0-M92" secondAttribute="top" constant="10" id="Zjy-I4-pkB"/>
+                                    <constraint firstItem="gsC-lm-HbX" firstAttribute="trailing" secondItem="r6l-nk-Yel" secondAttribute="trailing" id="aUd-na-SBe"/>
+                                    <constraint firstItem="gka-ad-31i" firstAttribute="leading" secondItem="gHh-m0-M92" secondAttribute="leading" id="iDa-ml-abN"/>
+                                    <constraint firstAttribute="trailing" secondItem="r6l-nk-Yel" secondAttribute="trailing" constant="8" id="oIn-PY-JS7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-qJ-hct">
+                                <rect key="frame" x="165" y="421" width="84" height="39"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Confirm">
+                                    <color key="titleColor" name="Button Color"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyNewCredentials:" destination="A3G-Gc-MEn" eventType="touchUpInside" id="ZiL-2R-r4h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Background Color"/>
+                        <constraints>
+                            <constraint firstItem="u3j-tv-woJ" firstAttribute="leading" secondItem="gHh-m0-M92" secondAttribute="leading" constant="4" id="5cu-wZ-3g1"/>
+                            <constraint firstItem="gHh-m0-M92" firstAttribute="top" secondItem="u3j-tv-woJ" secondAttribute="bottom" constant="12" id="6gL-cs-NXz"/>
+                            <constraint firstItem="u3j-tv-woJ" firstAttribute="trailing" secondItem="gHh-m0-M92" secondAttribute="trailing" constant="-4" id="7XF-BU-TCe"/>
+                            <constraint firstItem="jt1-Oz-iz9" firstAttribute="leading" secondItem="NcN-CI-zdN" secondAttribute="leading" constant="12" id="E69-Ah-64V"/>
+                            <constraint firstItem="gHh-m0-M92" firstAttribute="centerX" secondItem="NcN-CI-zdN" secondAttribute="centerX" id="H1o-Aj-VV0"/>
+                            <constraint firstItem="gHh-m0-M92" firstAttribute="leading" secondItem="NcN-CI-zdN" secondAttribute="leading" constant="20" id="Rkt-MD-tYv"/>
+                            <constraint firstItem="gHh-m0-M92" firstAttribute="centerX" secondItem="NcN-CI-zdN" secondAttribute="centerX" id="Xls-tp-uRy"/>
+                            <constraint firstItem="NcN-CI-zdN" firstAttribute="trailing" secondItem="gHh-m0-M92" secondAttribute="trailing" constant="20" id="jdn-WE-X17"/>
+                            <constraint firstItem="NcN-CI-zdN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jt1-Oz-iz9" secondAttribute="trailing" symbolic="YES" id="pkf-e8-pVG"/>
+                            <constraint firstItem="jt1-Oz-iz9" firstAttribute="top" secondItem="NcN-CI-zdN" secondAttribute="top" constant="8" id="qqX-Ng-8T7"/>
+                            <constraint firstItem="eoK-qJ-hct" firstAttribute="centerX" secondItem="gHh-m0-M92" secondAttribute="centerX" id="sht-cc-d9R"/>
+                            <constraint firstItem="gHh-m0-M92" firstAttribute="centerY" secondItem="NcN-CI-zdN" secondAttribute="centerY" constant="-40" id="tsr-nB-8lr"/>
+                            <constraint firstItem="eoK-qJ-hct" firstAttribute="top" secondItem="gHh-m0-M92" secondAttribute="bottom" constant="18" id="ucU-cE-XvN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NcN-CI-zdN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ioc-pl-bZk"/>
+                    <connections>
+                        <outlet property="sdkKeyTextField" destination="r6l-nk-Yel" id="k4Y-zi-1Pf"/>
+                        <outlet property="userTextField" destination="gsC-lm-HbX" id="KYX-NZ-kk0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8C-V5-OI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092.753623188406" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background Color">
+            <color red="0.4392156862745098" green="0.62352941176470589" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Button Color">
+            <color red="0.95686274509803926" green="0.92156862745098034" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Text Color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
