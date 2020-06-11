@@ -1,10 +1,9 @@
 //
-//  UserNotificationObserver.swift
-//  PushAuthSample
+// Copyright © 2020 UnifyID, Inc. All rights reserved.
+// Unauthorized copying or excerpting via any medium is strictly prohibited.
+// Proprietary and confidential.
 //
-//  Created by Ricardo Suranta on 6/9/20.
-//  Copyright © 2020 UnifyID. All rights reserved.
-//
+
 
 import UIKit
 import UnifyID
@@ -27,6 +26,9 @@ class UserNotificationObserver: NSObject {
     
     /// Callback that gets called when this instance receives a general user notification.
     var generalNotificationHandler: ((UNNotification) -> Void)?
+    
+    /// Callback that gets called when this instance gets any error.
+    var errorHandler: ((Error) -> Void)?
     
     // MARK: - Public methods
     
@@ -53,11 +55,16 @@ class UserNotificationObserver: NSObject {
     /// Registers the passed `deviceToken` so current app could receive proper PushAuth notifications.
     /// - note: The given `deviceToken` should come from UIApplicationDelegate's `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` method.
     func registerDeviceTokenForNotification(deviceToken: String) {
-        unifyID.pushAuth.registerPushToken(deviceToken) { (error: PushAuthError?) in
-            if let validError = error {
-                // TODO: SDK-2282 present this error with proper UI.
-                print("Error when registering Push Auth: \(validError.localizedDescription)")
+        
+        unifyID.pushAuth.registerPushToken(deviceToken) { [weak self] (error: PushAuthError?) in
+            guard let validError = error else {
+                return
             }
+            
+            let wrappingError = UserNotificationObserverError.deviceTokenRegistrationFailed(underlyingError: validError)
+            
+            self?.errorHandler?(wrappingError)
+            log(wrappingError.localizedDescription)
         }
     }
     
@@ -75,19 +82,26 @@ class UserNotificationObserver: NSObject {
                 .requestAuthorization(options: [.sound, .alert]) { [weak self] (authorized, error) in
                     
                     if let validError = error {
-                        // TODO: SDK-2282 present this error with proper UI.
-                        print("Error when requesting user notification authorization: \(validError.localizedDescription)")
+                        let wrappingError = UserNotificationObserverError.notificationAuthorizationFailed(underlyingError: validError)
+                        
+                        self?.errorHandler?(wrappingError)
+                        log(wrappingError.localizedDescription)
+                        
                     } else if !authorized {
-                        // TODO: SDK-2282 present this error with proper UI.
-                        print("User did not authorize the notification observing request.")
+                        let unauthorizedError = UserNotificationObserverError.notificationUnauthorized
+                        self?.errorHandler?(unauthorizedError)
+                        log(unauthorizedError.localizedDescription)
+                        
                     } else {
                         self?.requestUserNotificationPermission() // check if it's enabled now.
                     }
             }
             
         @unknown default:
-            // TODO: SDK-2282 present this error with proper UI.
-            print("Invalid alert settings response: \(settings.alertSetting)")
+            let unknownError = UserNotificationObserverError.notificationSettingsUnknown
+            
+            self.errorHandler?(unknownError)
+            log(unknownError.localizedDescription)
         }
     }
     
@@ -129,19 +143,22 @@ extension UserNotificationObserver: UNUserNotificationCenterDelegate {
             
             pushAuthRequest.respond(pushAuthResponse) { (error: PushAuthError?) in
                 
-                if let validError = error {
-                    // TODO: SDK-2282 present this error with proper UI.
-                    print("Error found when asking user's response to push auth: \(validError)")
-                } else {
-                    // TODO: SDK-2282 present this error with proper UI.
-                    print("Succeeded asking user's response to push auth: \(pushAuthResponse)")
+                guard let validError = error else {
+                    log("Succeeded asking user's response to push auth: \(pushAuthResponse)")
+                    return
                 }
+                                
+                let wrappingError = UserNotificationObserverError.pushAuthResponseFailed(underlyingError: validError)
                 
+                self.errorHandler?(wrappingError)
+                log(wrappingError.localizedDescription)
             }
             
         @unknown default:
-            // TODO: SDK-2282 present this error with proper UI.
-            print("Invalid push auth response: \(pushAuthResponse)")
+            let unknownError = UserNotificationObserverError.pushAuthResponseUnknown
+            
+            self.errorHandler?(unknownError)
+            log(unknownError.localizedDescription)
         }
     }
 }
