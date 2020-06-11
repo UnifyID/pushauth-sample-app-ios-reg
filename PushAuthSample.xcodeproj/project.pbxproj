@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260824905C22002F5714 /* UnifyConfigurationStore.swift */; };
 		554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260A24905C64002F5714 /* UserNotificationObserver.swift */; };
+		5573DB0D24919B8700E2CFB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB0C24919B8700E2CFB8 /* Log.swift */; };
+		5573DB1024919CF700E2CFB8 /* UserNotificationObserverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */; };
+		5573DB122491AE6C00E2CFB8 /* HomeViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB112491AE6C00E2CFB8 /* HomeViewControllerError.swift */; };
 		55D27616248ED413005ADD06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27615248ED413005ADD06 /* AppDelegate.swift */; };
 		55D2761A248ED413005ADD06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27619248ED413005ADD06 /* HomeViewController.swift */; };
 		55D2761D248ED413005ADD06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D2761B248ED413005ADD06 /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 		554E260824905C22002F5714 /* UnifyConfigurationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifyConfigurationStore.swift; sourceTree = "<group>"; };
 		554E260A24905C64002F5714 /* UserNotificationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationObserver.swift; sourceTree = "<group>"; };
 		5573DB0B2491565D00E2CFB8 /* PushAuth Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PushAuth Sample.entitlements"; sourceTree = "<group>"; };
+		5573DB0C24919B8700E2CFB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationObserverError.swift; sourceTree = "<group>"; };
+		5573DB112491AE6C00E2CFB8 /* HomeViewControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerError.swift; sourceTree = "<group>"; };
 		55D27612248ED413005ADD06 /* PushAuth Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PushAuth Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D27615248ED413005ADD06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D27619248ED413005ADD06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5573DB0E24919CDD00E2CFB8 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				5573DB112491AE6C00E2CFB8 /* HomeViewControllerError.swift */,
+				5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		55D27609248ED413005ADD06 = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +105,11 @@
 				55D27615248ED413005ADD06 /* AppDelegate.swift */,
 				55D27629248EEEC4005ADD06 /* ConfigViewController.swift */,
 				55D27619248ED413005ADD06 /* HomeViewController.swift */,
+				5573DB0C24919B8700E2CFB8 /* Log.swift */,
 				554E260824905C22002F5714 /* UnifyConfigurationStore.swift */,
 				554E260A24905C64002F5714 /* UserNotificationObserver.swift */,
 				55D2761E248ED414005ADD06 /* Assets.xcassets */,
+				5573DB0E24919CDD00E2CFB8 /* Errors */,
 				55D27620248ED414005ADD06 /* LaunchScreen.storyboard */,
 				55D2761B248ED413005ADD06 /* Main.storyboard */,
 			);
@@ -215,8 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */,
+				5573DB0D24919B8700E2CFB8 /* Log.swift in Sources */,
+				5573DB122491AE6C00E2CFB8 /* HomeViewControllerError.swift in Sources */,
 				55D2761A248ED413005ADD06 /* HomeViewController.swift in Sources */,
 				554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */,
+				5573DB1024919CF700E2CFB8 /* UserNotificationObserverError.swift in Sources */,
 				55D27616248ED413005ADD06 /* AppDelegate.swift in Sources */,
 				55D2762A248EEEC4005ADD06 /* ConfigViewController.swift in Sources */,
 			);

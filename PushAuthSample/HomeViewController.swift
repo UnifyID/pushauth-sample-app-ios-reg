@@ -30,8 +30,8 @@ class HomeViewController: UIViewController {
         
         guard let sdkKey = UnifyConfigurationStore.getConfig(key: .sdkKey),
             let user = UnifyConfigurationStore.getConfig(key: .user) else {
-                // TODO: SDK-2282 present this error with proper UI.
-                print("No valid SDK Key and/or user set for UnifyID configuration.")
+                let error = HomeViewControllerError.incompleteConfiguration
+                presentError(error)
                 return
         }
         
@@ -40,8 +40,8 @@ class HomeViewController: UIViewController {
         do {
             unifyID = try UnifyID(sdkKey: sdkKey, user: user, challenge: "")
         } catch {
-            // TODO: SDK-2282 present this error with proper UI.
-            print("Failed to create UnifyID, error: \(error)")
+            let wrappingError = HomeViewControllerError.unifyIDCreationFailed(underlyingError: error)
+            presentError(wrappingError)
             return
         }
         
@@ -61,8 +61,9 @@ class HomeViewController: UIViewController {
     @objc private func registerDeviceToken(notification: Notification) {
         
         guard let deviceToken = notification.object as? String else {
-            // TODO: SDK-2282 present this error with proper UI.
-            print("Token format error: \(notification.object.debugDescription)")
+            let error = HomeViewControllerError.invalidDeviceTokenFormat
+            presentError(error)
+            
             return
         }
         
@@ -83,7 +84,13 @@ class HomeViewController: UIViewController {
         
         observer.generalNotificationHandler = { [weak self] notification in
             DispatchQueue.main.async {
-                self?.presentGeneralNotification(notification: notification)
+                self?.presentGeneralNotification(notification)
+            }
+        }
+        
+        observer.errorHandler = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.presentError(error)
             }
         }
                 
@@ -108,16 +115,15 @@ class HomeViewController: UIViewController {
         switch result {
             
         case .failure(let error):
-            // TODO: SDK-2282 present this error with proper UI.
-            print("Error when presenting push auth as alert: \(error)")
+            let wrappingError = HomeViewControllerError.pushAuthAlertFailed(underlyingError: error)
+            presentError(wrappingError)
             
         case .success(let response):
-            // TODO: SDK-2282 subject to discussion, but it's better to show a proper UI for this.
-            print("Successfully handled push auth as alert, user's response: \(response)")
+            log("Successfully handled push auth as alert, user's response: \(response)")
         }
     }
     
-    private func presentGeneralNotification(notification: UNNotification) {
+    private func presentGeneralNotification(_ notification: UNNotification) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         
         let requestBody = notification.request.content.body
@@ -130,4 +136,26 @@ class HomeViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    private func presentError(_ error: Error) {
+        
+        let errorMessage = getErrorMessage(error: error)
+        
+        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func getErrorMessage(error: Error) -> String {
+        
+        if let observerError = error as? UserNotificationObserverError {
+            return observerError.localizedDescription
+        } else if let homeError = error as? HomeViewControllerError {
+            return homeError.localizedDescription
+        } else {
+            return error.localizedDescription
+        }
+    }
 }
