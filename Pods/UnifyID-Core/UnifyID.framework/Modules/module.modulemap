@@ -1,0 +1,4 @@
+framework module UnifyID {
+  header "UnifyID-Swift.h"
+  requires objc
+}

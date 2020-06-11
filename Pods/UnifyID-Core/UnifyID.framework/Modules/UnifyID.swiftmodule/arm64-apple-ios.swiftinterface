@@ -1,0 +1,31 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 effective-4.2 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name UnifyID
+import CommonCrypto
+import Foundation
+import KeychainSwift
+import Sodium
+import Swift
+import UIKit
+@objc public class UnifyID : ObjectiveC.NSObject {
+  public typealias SuccessCallback<T> = (T?) -> Swift.Void where T : Swift.Error
+  public typealias Callback<Success, Failure> = (Swift.Result<Success, Failure>) -> Swift.Void where Failure : Swift.Error
+  public static var version: Swift.String? {
+    get
+  }
+  public var clientID: Swift.String? {
+    get
+  }
+  final public let sdkKey: Foundation.URL
+  final public let user: Swift.String
+  required public init(sdkKey: Swift.String, user: Swift.String? = nil, challenge: Swift.String = "") throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum UnifyIDError : Foundation.LocalizedError {
+  case invalidSDKKey
+  case provideUser(reason: Swift.String)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}

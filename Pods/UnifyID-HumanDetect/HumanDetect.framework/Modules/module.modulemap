@@ -1,0 +1,12 @@
+framework module HumanDetect {
+    umbrella header "HumanDetect.h"
+    header "PossessV3.h"
+    header "RandomForest.h"
+    export *
+    module * { export * }
+}
+
+module HumanDetect.Swift {
+    header "HumanDetect-Swift.h"
+    requires objc
+}
