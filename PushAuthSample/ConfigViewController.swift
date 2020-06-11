@@ -13,21 +13,37 @@ class ConfigViewController: UIViewController {
     @IBOutlet private weak var sdkKeyTextField: UITextField!
     @IBOutlet private weak var userTextField: UITextField!
     
+    // MARK: - UIViewController
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        sdkKeyTextField.text = UnifyConfigurationStore.getConfig(key: .sdkKey)
+        userTextField.text = UnifyConfigurationStore.getConfig(key: .user)
+    }
+    
     // MARK: - IBActions
         
     @IBAction private func dismissPage(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }    
     
-    @IBAction private func applyNewCredentials(_ sender: Any) {
+    @IBAction private func applyNewConfiguration(_ sender: Any) {
         guard let sdkKey = sdkKeyTextField?.text,
             let user = userTextField?.text else {
                 return
         }
         
-        // TODO: SDK-2261 Utilize the SDK Key and user values to integrate the PushAuth SDK.
+        UnifyConfigurationStore.setConfig(key: .sdkKey, value: sdkKey)
+        UnifyConfigurationStore.setConfig(key: .user, value: user)
         
-        print("Input for SDK Key: \(sdkKey), user: \(user)")
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        let presentingViewController = self.presentingViewController
+        
+        presentingViewController?.dismiss(animated: true, completion: { [weak presentingViewController] in
+            
+            if let homeViewController = presentingViewController as? HomeViewController {
+                homeViewController.setupUserNotificationObserver()
+            }            
+        })
     }
 }

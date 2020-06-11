@@ -34,7 +34,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry3-DE-wSH">
                                         <rect key="frame" x="0.0" y="112" width="384" height="286.5"/>
-                                        <mutableString key="text">1. Set up your UnifyID user and SDK key using the "Configure" button below.  2. Press "Allow" when the app requests to receive push notifications.  3. Start a PushAuth session for the configured user. See the README for an example.  4. Voila, you just received a PushAuth request! 🎉</mutableString>
+                                        <string key="text">1. Set up your UnifyID user and SDK key using the "Configure" button below.  2. Press "Allow" when the app requests to receive push notifications.  3. Start a PushAuth session for the configured user. See the README for an example.  4. Voila, you just received a PushAuth request! 🎉</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" name="Text Color"/>
                                         <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                                     <color key="titleColor" name="Button Color"/>
                                 </state>
                                 <connections>
-                                    <action selector="applyNewCredentials:" destination="A3G-Gc-MEn" eventType="touchUpInside" id="ZiL-2R-r4h"/>
+                                    <action selector="applyNewConfiguration:" destination="A3G-Gc-MEn" eventType="touchUpInside" id="ZiL-2R-r4h"/>
                                 </connections>
                             </button>
                         </subviews>

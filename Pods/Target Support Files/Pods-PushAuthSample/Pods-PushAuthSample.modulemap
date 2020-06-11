@@ -1,0 +1,6 @@
+framework module Pods_PushAuthSample {
+  umbrella header "Pods-PushAuthSample-umbrella.h"
+
+  export *
+  module * { export * }
+}

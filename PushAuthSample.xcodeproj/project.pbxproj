@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260824905C22002F5714 /* UnifyConfigurationStore.swift */; };
+		554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260A24905C64002F5714 /* UserNotificationObserver.swift */; };
 		55D27616248ED413005ADD06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27615248ED413005ADD06 /* AppDelegate.swift */; };
 		55D2761A248ED413005ADD06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27619248ED413005ADD06 /* HomeViewController.swift */; };
 		55D2761D248ED413005ADD06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D2761B248ED413005ADD06 /* Main.storyboard */; };
 		55D2761F248ED414005ADD06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D2761E248ED414005ADD06 /* Assets.xcassets */; };
 		55D27622248ED414005ADD06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D27620248ED414005ADD06 /* LaunchScreen.storyboard */; };
 		55D2762A248EEEC4005ADD06 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27629248EEEC4005ADD06 /* ConfigViewController.swift */; };
+		70E133F9C3B8E29AF846FCEE /* Pods_PushAuthSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA6D4D84CCAC5697EB772 /* Pods_PushAuthSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		554E260824905C22002F5714 /* UnifyConfigurationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifyConfigurationStore.swift; sourceTree = "<group>"; };
+		554E260A24905C64002F5714 /* UserNotificationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationObserver.swift; sourceTree = "<group>"; };
+		5573DB0B2491565D00E2CFB8 /* PushAuth Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PushAuth Sample.entitlements"; sourceTree = "<group>"; };
 		55D27612248ED413005ADD06 /* PushAuth Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PushAuth Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55D27615248ED413005ADD06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55D27619248ED413005ADD06 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +30,9 @@
 		55D27621248ED414005ADD06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55D27623248ED414005ADD06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D27629248EEEC4005ADD06 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		B72B887C7C1F64471DB6E283 /* Pods-PushAuthSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushAuthSample.debug.xcconfig"; path = "Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample.debug.xcconfig"; sourceTree = "<group>"; };
+		C79DA6D4D84CCAC5697EB772 /* Pods_PushAuthSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushAuthSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11D56C5E96215D6093C12A3 /* Pods-PushAuthSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushAuthSample.release.xcconfig"; path = "Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +40,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E133F9C3B8E29AF846FCEE /* Pods_PushAuthSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FF8E3B4E58343DA1A775BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C79DA6D4D84CCAC5697EB772 /* Pods_PushAuthSample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C8240CDB3F2188CEAF6A9C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B72B887C7C1F64471DB6E283 /* Pods-PushAuthSample.debug.xcconfig */,
+				F11D56C5E96215D6093C12A3 /* Pods-PushAuthSample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		55D27609248ED413005ADD06 = {
 			isa = PBXGroup;
 			children = (
 				55D27614248ED413005ADD06 /* PushAuthSample */,
 				55D27613248ED413005ADD06 /* Products */,
+				4C8240CDB3F2188CEAF6A9C1 /* Pods */,
+				0FF8E3B4E58343DA1A775BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +85,13 @@
 		55D27614248ED413005ADD06 /* PushAuthSample */ = {
 			isa = PBXGroup;
 			children = (
+				5573DB0B2491565D00E2CFB8 /* PushAuth Sample.entitlements */,
 				55D27623248ED414005ADD06 /* Info.plist */,
 				55D27615248ED413005ADD06 /* AppDelegate.swift */,
 				55D27629248EEEC4005ADD06 /* ConfigViewController.swift */,
 				55D27619248ED413005ADD06 /* HomeViewController.swift */,
+				554E260824905C22002F5714 /* UnifyConfigurationStore.swift */,
+				554E260A24905C64002F5714 /* UserNotificationObserver.swift */,
 				55D2761E248ED414005ADD06 /* Assets.xcassets */,
 				55D27620248ED414005ADD06 /* LaunchScreen.storyboard */,
 				55D2761B248ED413005ADD06 /* Main.storyboard */,
@@ -74,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 55D27626248ED414005ADD06 /* Build configuration list for PBXNativeTarget "PushAuthSample" */;
 			buildPhases = (
+				83222AEFE63131441141D010 /* [CP] Check Pods Manifest.lock */,
 				55D2760E248ED413005ADD06 /* Sources */,
 				55D2760F248ED413005ADD06 /* Frameworks */,
 				55D27610248ED413005ADD06 /* Resources */,
+				E42C4E41DA851A922941EB15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +167,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		83222AEFE63131441141D010 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PushAuthSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E42C4E41DA851A922941EB15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55D2760E248ED413005ADD06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */,
 				55D2761A248ED413005ADD06 /* HomeViewController.swift in Sources */,
+				554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */,
 				55D27616248ED413005ADD06 /* AppDelegate.swift in Sources */,
 				55D2762A248EEEC4005ADD06 /* ConfigViewController.swift in Sources */,
 			);
@@ -282,8 +360,10 @@
 		};
 		55D27627248ED414005ADD06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B72B887C7C1F64471DB6E283 /* Pods-PushAuthSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PushAuthSample/PushAuth Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBD89XZSYG;
 				INFOPLIST_FILE = PushAuthSample/Info.plist;
@@ -301,8 +381,10 @@
 		};
 		55D27628248ED414005ADD06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F11D56C5E96215D6093C12A3 /* Pods-PushAuthSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "PushAuthSample/PushAuth Sample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SBD89XZSYG;
 				INFOPLIST_FILE = PushAuthSample/Info.plist;

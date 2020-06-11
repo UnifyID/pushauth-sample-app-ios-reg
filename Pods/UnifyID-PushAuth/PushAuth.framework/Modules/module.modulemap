@@ -1,0 +1,4 @@
+framework module PushAuth {
+  header "PushAuth-Swift.h"
+  requires objc
+}

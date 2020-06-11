@@ -1,0 +1,42 @@
+PODS:
+  - KeychainSwift (19.0.0)
+  - Sodium (0.8.0)
+  - SwiftProtobuf (1.8.0)
+  - UnifyID-Core (2.0.24):
+    - KeychainSwift (~> 19.0.0)
+    - Sodium (~> 0.8.0)
+  - UnifyID-HumanDetect (2.0.3):
+    - SwiftProtobuf (~> 1.8.0)
+    - UnifyID-Core (~> 2.0.24)
+  - UnifyID-PushAuth (2.0.11):
+    - SwiftProtobuf (~> 1.8.0)
+    - UnifyID-Core (~> 2.0.24)
+  - UnifyID/PushAuth (2.0.24):
+    - UnifyID-HumanDetect (~> 2.0.3)
+    - UnifyID-PushAuth (~> 2.0.11)
+
+DEPENDENCIES:
+  - UnifyID/PushAuth
+
+SPEC REPOS:
+  trunk:
+    - KeychainSwift
+    - Sodium
+    - SwiftProtobuf
+    - UnifyID
+    - UnifyID-Core
+    - UnifyID-HumanDetect
+    - UnifyID-PushAuth
+
+SPEC CHECKSUMS:
+  KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  Sodium: 63c0ca312a932e6da481689537d4b35568841bdc
+  SwiftProtobuf: 2cbd9409689b7df170d82a92a33443c8e3e14a70
+  UnifyID: 34ff980b98a2e0c56287aab12b1f9611022c1db4
+  UnifyID-Core: c8316ec8de31ea0070c8a2f2a976bb9bd204eb49
+  UnifyID-HumanDetect: 802107c257a5d5493891e5dc01079ea8043fb210
+  UnifyID-PushAuth: a8fabd28b7187bbcdc7058b594106e1c2d95d288
+
+PODFILE CHECKSUM: 901959e4156fb968333d28ed62d1e4164f2dba8a
+
+COCOAPODS: 1.9.1
