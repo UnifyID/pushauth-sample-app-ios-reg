@@ -1,7 +1,8 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.3 effective-4.2 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-compiler-version: Apple Swift version 5.2.4 effective-4.2 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name PushAuth
 import CommonCrypto
+import Compression
 import CoreLocation
 import CoreTelephony
 import Foundation
@@ -13,12 +14,1355 @@ import SwiftProtobuf
 import UIKit
 import UnifyID
 import UserNotifications
+public struct Unifyid_Protobuf_DataPacketRef : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Swift.Int32
+  public var url: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_DataPacketRef : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataPacketRef) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_LoggingConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var enabled: Swift.Bool
+  public var level: Unifyid_V0_LoggingConfig.LogLevel
+  public var shouldEncrypt: Swift.Bool
+  public var scope: Unifyid_V0_LoggingConfig.LogScope
+  public var uploadPeriod: Swift.Int64
+  public var maxSizeBytes: Swift.Int64
+  public var rotationCount: Swift.Int64
+  public var networkType: Unifyid_V0_LoggingConfig.NetworkType
+  public var destinationBucket: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum LogLevel : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case trace
+    case debug
+    case info
+    case warn
+    case error
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum LogScope : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case sdk
+    case all
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum NetworkType : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case any
+    case wifi
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_LoggingConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_LoggingConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_LoggingConfig.LogLevel : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_LoggingConfig.LogScope : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_LoggingConfig.NetworkType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public struct Unifyid_V0_Captcha : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTimestamp: Swift.Bool {
+    get
+  }
+  public mutating func clearTimestamp()
+  public var features: Unifyid_V0_CaptchaFeatures {
+    get
+    set
+  }
+  public var hasFeatures: Swift.Bool {
+    get
+  }
+  public mutating func clearFeatures()
+  public var user: Swift.String {
+    get
+    set
+  }
+  public var bundle: Swift.String {
+    get
+    set
+  }
+  public var identifier: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_CaptchaFeatures : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var minimum: Swift.Double
+  public var maximum: Swift.Double
+  public var absoluteSumOfChanges: Swift.Double
+  public var mean: Swift.Double
+  public var variance: Swift.Double
+  public var finiteDifference: Swift.Double
+  public var skew: Swift.Double
+  public var kurtosis: Swift.Double
+  public var sigmaVolume: Swift.Double
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_Captcha : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Captcha) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_CaptchaFeatures : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_CaptchaFeatures) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_SDKPlatform : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case androidSdk
+  case iosSdk
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_KillSwitch : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var platform: Unifyid_V0_SDKPlatform
+  public var name: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_SDKPlatform : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_KillSwitch : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_KillSwitch) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_PTAConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var tokenRegistrationEnabled: Swift.Bool
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_PTAConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_PTAConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_ModelTrainingPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var policyName: Swift.String
+  public var policyVersion: Swift.String
+  public var modelTrainingPolicies: [Unifyid_Protobuf_ModelTrainingFactorPolicy]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_ModelTrainingFactorPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var factorName: Unifyid_Protobuf_FactorType {
+    get
+    set
+  }
+  public var modelName: Swift.String {
+    get
+    set
+  }
+  public var modelVersion: Swift.String {
+    get
+    set
+  }
+  public var modelTrainingParams: Unifyid_Protobuf_ModelTrainingFactorPolicy.OneOf_ModelTrainingParams? {
+    get
+    set
+  }
+  public var gait: Unifyid_Protobuf_GaitFactorTrainingParams {
+    get
+    set
+  }
+  public var snapshot: Unifyid_Protobuf_SnapshotFactorTrainingParams {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum OneOf_ModelTrainingParams : Swift.Equatable {
+    case gait(Unifyid_Protobuf_GaitFactorTrainingParams)
+    case snapshot(Unifyid_Protobuf_SnapshotFactorTrainingParams)
+    public static func == (lhs: Unifyid_Protobuf_ModelTrainingFactorPolicy.OneOf_ModelTrainingParams, rhs: Unifyid_Protobuf_ModelTrainingFactorPolicy.OneOf_ModelTrainingParams) -> Swift.Bool
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_SnapshotFactorTrainingParams : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var trainingPeriod: Swift.Int32
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_GaitFactorTrainingParams : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var trainingPeriod: Swift.Int32
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ModelTrainingPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ModelTrainingPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_ModelTrainingFactorPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ModelTrainingFactorPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_SnapshotFactorTrainingParams : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_SnapshotFactorTrainingParams) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_GaitFactorTrainingParams : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_GaitFactorTrainingParams) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_TriggerDetections : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var moveDetected: Unifyid_V0_MoveDetectedTriggerDetection {
+    get
+    set
+  }
+  public var hasMoveDetected: Swift.Bool {
+    get
+  }
+  public mutating func clearMoveDetected()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_MoveDetectedTriggerDetection : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var stopMinWcCount: Swift.Int64
+  public var stopWcDurationMs: Swift.Int64
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_TriggerDetections : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_TriggerDetections) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_MoveDetectedTriggerDetection : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_MoveDetectedTriggerDetection) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_DataPacketType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case dpInvalid
+  case dpAccelerometer
+  case dpBluetooth
+  case dpGyroscope
+  case dpRotation
+  case dpBarometer
+  case dpMagnetometer
+  case dpLocation
+  case dpWifi
+  case dpGrip
+  case dpHrmIr
+  case dpEvents
+  case dpBattery
+  case dpStepCounter
+  case dpStepDetector
+  case dpCoarseLocation
+  case dpGaitzerocrossFeat
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_DataPacket : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Swift.Int32 {
+    get
+    set
+  }
+  public var type: Unifyid_Protobuf_DataPacketType {
+    get
+    set
+  }
+  public var metadata: Unifyid_Protobuf_DataPacketMetadata {
+    get
+    set
+  }
+  public var hasMetadata: Swift.Bool {
+    get
+  }
+  public mutating func clearMetadata()
+  public var buffers: [Unifyid_Protobuf_DataBuffer] {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_DataPacketType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_DataPacket : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataPacket) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_DataFrames : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Swift.Int32 {
+    get
+    set
+  }
+  public var metadata: Unifyid_Protobuf_DataFramesMetadata {
+    get
+    set
+  }
+  public var hasMetadata: Swift.Bool {
+    get
+  }
+  public mutating func clearMetadata()
+  public var frames: [Unifyid_Protobuf_DataFrame] {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_DataFramesMetadata : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var sdkVersion: Swift.String {
+    get
+    set
+  }
+  public var platform: Swift.String {
+    get
+    set
+  }
+  public var platformVersion: Swift.String {
+    get
+    set
+  }
+  public var ts: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTs: Swift.Bool {
+    get
+  }
+  public mutating func clearTs()
+  public var extra: SwiftProtobuf.Google_Protobuf_Struct {
+    get
+    set
+  }
+  public var hasExtra: Swift.Bool {
+    get
+  }
+  public mutating func clearExtra()
+  public var installID: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_DataFrame : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var value: Unifyid_Protobuf_DataFrame.OneOf_Value? {
+    get
+    set
+  }
+  public var accelerometer: Unifyid_Protobuf_Accelerometer {
+    get
+    set
+  }
+  public var gyroscope: Unifyid_Protobuf_Gyroscope {
+    get
+    set
+  }
+  public var bluetooth: Unifyid_Protobuf_Bluetooth {
+    get
+    set
+  }
+  public var event: Unifyid_Protobuf_Event {
+    get
+    set
+  }
+  public var walkCycle: Unifyid_Protobuf_WalkCycle {
+    get
+    set
+  }
+  public var magnetometer: Unifyid_Protobuf_Magnetometer {
+    get
+    set
+  }
+  public var rotation: Unifyid_Protobuf_Rotation {
+    get
+    set
+  }
+  public var stepCounter: Unifyid_Protobuf_StepCounter {
+    get
+    set
+  }
+  public var stepDetector: Unifyid_Protobuf_StepDetector {
+    get
+    set
+  }
+  public var location: Unifyid_Protobuf_Location {
+    get
+    set
+  }
+  public var clientSnapshot: Unifyid_Protobuf_ClientSnapshot {
+    get
+    set
+  }
+  public var log: Unifyid_Protobuf_Log {
+    get
+    set
+  }
+  public var telemetry: Unifyid_Protobuf_Telemetry {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum OneOf_Value : Swift.Equatable {
+    case accelerometer(Unifyid_Protobuf_Accelerometer)
+    case gyroscope(Unifyid_Protobuf_Gyroscope)
+    case bluetooth(Unifyid_Protobuf_Bluetooth)
+    case event(Unifyid_Protobuf_Event)
+    case walkCycle(Unifyid_Protobuf_WalkCycle)
+    case magnetometer(Unifyid_Protobuf_Magnetometer)
+    case rotation(Unifyid_Protobuf_Rotation)
+    case stepCounter(Unifyid_Protobuf_StepCounter)
+    case stepDetector(Unifyid_Protobuf_StepDetector)
+    case location(Unifyid_Protobuf_Location)
+    case clientSnapshot(Unifyid_Protobuf_ClientSnapshot)
+    case log(Unifyid_Protobuf_Log)
+    case telemetry(Unifyid_Protobuf_Telemetry)
+    public static func == (lhs: Unifyid_Protobuf_DataFrame.OneOf_Value, rhs: Unifyid_Protobuf_DataFrame.OneOf_Value) -> Swift.Bool
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Accelerometer : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var xs: [Swift.Double]
+  public var ys: [Swift.Double]
+  public var zs: [Swift.Double]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Gyroscope : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var xs: [Swift.Double]
+  public var ys: [Swift.Double]
+  public var zs: [Swift.Double]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Bluetooth : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var ids: [Swift.String]
+  public var names: [Swift.String]
+  public var rssis: [Swift.Int32]
+  public var txPowerLevels: [Swift.Int32]
+  public var connectionStates: [Unifyid_Protobuf_Bluetooth.ConnectionState]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum ConnectionState : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case unknown
+    case disconnected
+    case connected
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Event : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var names: [Swift.String]
+  public var data: [SwiftProtobuf.Google_Protobuf_Struct]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_WalkCycle : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var accelerometerValues: Unifyid_Protobuf_Accelerometer {
+    get
+    set
+  }
+  public var hasAccelerometerValues: Swift.Bool {
+    get
+  }
+  public mutating func clearAccelerometerValues()
+  public var gyroscopeValues: Unifyid_Protobuf_Gyroscope {
+    get
+    set
+  }
+  public var hasGyroscopeValues: Swift.Bool {
+    get
+  }
+  public mutating func clearGyroscopeValues()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Magnetometer : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var xs: [Swift.Double]
+  public var ys: [Swift.Double]
+  public var zs: [Swift.Double]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Rotation : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var xs: [Swift.Double]
+  public var ys: [Swift.Double]
+  public var zs: [Swift.Double]
+  public var ws: [Swift.Double]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_StepCounter : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var steps: [Swift.Int32]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_StepDetector : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var steps: [Swift.Int32]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Location : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var latitudes: [Swift.Double]
+  public var longitudes: [Swift.Double]
+  public var altitudes: [Swift.Double]
+  public var horizontalAccuracies: [Swift.Double]
+  public var verticalAccuracies: [Swift.Double]
+  public var speeds: [Swift.Double]
+  public var courses: [Swift.Double]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_ClientSnapshot : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTimestamp: Swift.Bool {
+    get
+  }
+  public mutating func clearTimestamp()
+  public var trigger: Swift.String {
+    get
+    set
+  }
+  public var version: Swift.Int32 {
+    get
+    set
+  }
+  public var entries: [Unifyid_Protobuf_ClientSnapshotEntry] {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_ClientSnapshotEntry : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var name: Swift.String
+  public var fields: Swift.Dictionary<Swift.String, Unifyid_Protobuf_Value>
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Log : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamps: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var levels: [Unifyid_Protobuf_Log.Level]
+  public var paths: [Swift.String]
+  public var messages: [Swift.String]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum Level : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case trace
+    case debug
+    case info
+    case warn
+    case error
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Telemetry : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTimestamp: Swift.Bool {
+    get
+  }
+  public mutating func clearTimestamp()
+  public var events: [Unifyid_Protobuf_TelemetryEvent] {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_TelemetryEvent : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var name: Swift.String {
+    get
+    set
+  }
+  public var value: Unifyid_Protobuf_Value {
+    get
+    set
+  }
+  public var hasValue: Swift.Bool {
+    get
+  }
+  public mutating func clearValue()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_DataFrames : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataFrames) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_DataFramesMetadata : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataFramesMetadata) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_DataFrame : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataFrame) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Accelerometer : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Accelerometer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Gyroscope : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Gyroscope) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Bluetooth : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Bluetooth) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Bluetooth.ConnectionState : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_Event : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Event) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_WalkCycle : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_WalkCycle) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Magnetometer : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Magnetometer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Rotation : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Rotation) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_StepCounter : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_StepCounter) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_StepDetector : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_StepDetector) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Location : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Location) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_ClientSnapshot : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ClientSnapshot) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_ClientSnapshotEntry : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ClientSnapshotEntry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Log : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Log) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Log.Level : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_Telemetry : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Telemetry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TelemetryEvent : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TelemetryEvent) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_DataPacketMetadata : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var sdkVersion: Swift.String {
+    get
+    set
+  }
+  public var platformVersion: Swift.String {
+    get
+    set
+  }
+  public var ts: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTs: Swift.Bool {
+    get
+  }
+  public mutating func clearTs()
+  public var extra: SwiftProtobuf.Google_Protobuf_Struct {
+    get
+    set
+  }
+  public var hasExtra: Swift.Bool {
+    get
+  }
+  public mutating func clearExtra()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_DataPacketMetadata : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataPacketMetadata) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_PlatformType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknownPlatform
+  case android
+  case ios
+  case macos
+  case windows
+  case linux
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_CsvMetadata : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var timestamp: Swift.Double {
+    get
+    set
+  }
+  public var sensor: Unifyid_V0_SensorType {
+    get
+    set
+  }
+  public var sdkVersion: Swift.String {
+    get
+    set
+  }
+  public var appName: Swift.String {
+    get
+    set
+  }
+  public var platform: Unifyid_V0_PlatformType {
+    get
+    set
+  }
+  public var platformVersion: Swift.String {
+    get
+    set
+  }
+  public var deviceModel: Swift.String {
+    get
+    set
+  }
+  public var deviceManufacturer: Swift.String {
+    get
+    set
+  }
+  public var userGender: Swift.String {
+    get
+    set
+  }
+  public var userCountry: Swift.String {
+    get
+    set
+  }
+  public var userState: Swift.String {
+    get
+    set
+  }
+  public var userCity: Swift.String {
+    get
+    set
+  }
+  public var userHeight: Swift.Double {
+    get
+    set
+  }
+  public var userWeight: Swift.Double {
+    get
+    set
+  }
+  public var userBirthDate: Swift.Int64 {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_PlatformType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_CsvMetadata : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_CsvMetadata) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_ComponentScoreType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case cstUnknown
+  case cstGait
+  case cstBluetooth
+  case cstMotion
+  case cstLocation
+  case cstDevice
+  case cstPossession
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_ComponentScorePolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var type: Unifyid_Protobuf_ComponentScoreType {
+    get
+    set
+  }
+  public var factorScoreMatchPolicies: [Unifyid_Protobuf_FactorScoreMatchPolicy] {
+    get
+    set
+  }
+  public var alg: Unifyid_Protobuf_ComponentScoreAlg {
+    get
+    set
+  }
+  public var hasAlg: Swift.Bool {
+    get
+  }
+  public mutating func clearAlg()
+  public var scoreWeight: Swift.Double {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_FactorScoreMatchPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var factor: Unifyid_Protobuf_FactorType
+  public var versionName: Swift.String
+  public var semverMatch: Swift.String
+  public var enabled: Swift.Bool
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ComponentScoreType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_ComponentScorePolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ComponentScorePolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_FactorScoreMatchPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_FactorScoreMatchPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_Services_GetConfigRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetConfigReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var config: Unifyid_V0_ClientConfig {
+    get
+    set
+  }
+  public var hasConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearConfig()
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var isClientOverride: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_UpdateConfigRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var config: Unifyid_V0_ClientConfig {
+    get
+    set
+  }
+  public var hasConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearConfig()
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_UpdateConfigReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RemoveClientOverrideRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RemoveClientOverrideReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetConfigClientsRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetConfigClientsReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customers: [Unifyid_V0_Services_GetConfigClientsReply.CustomerInfo] {
+    get
+    set
+  }
+  public var overriddenClients: [Unifyid_V0_Services_GetConfigClientsReply.ClientInfo] {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var sampleConfig: Unifyid_V0_ClientConfig {
+    get
+    set
+  }
+  public var hasSampleConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearSampleConfig()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public struct CustomerInfo : SwiftProtobuf.Message {
+    public static let protoMessageName: Swift.String
+    public var customerID: Swift.String
+    public var customerName: Swift.String
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+    public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+    public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  }
+  public struct ClientInfo : SwiftProtobuf.Message {
+    public static let protoMessageName: Swift.String
+    public var clientID: Swift.String
+    public var customerID: Swift.String
+    public var customerUserID: Swift.String
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+    public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+    public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_Services_GetConfigRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetConfigReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_UpdateConfigRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_UpdateConfigRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_UpdateConfigReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_UpdateConfigReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RemoveClientOverrideRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RemoveClientOverrideRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RemoveClientOverrideReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RemoveClientOverrideReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetConfigClientsRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigClientsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetConfigClientsReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigClientsReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetConfigClientsReply.CustomerInfo : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigClientsReply.CustomerInfo) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetConfigClientsReply.ClientInfo : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetConfigClientsReply.ClientInfo) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 extension UnifyID {
   public var pushAuth: PushAuth {
     get
   }
 }
-public class PushAuth {
+@_hasMissingDesignatedInitializers public class PushAuth {
   public init() throws
   public func registerPushToken(_ tokenString: Swift.String, completion: @escaping UnifyID.SuccessCallback<PushAuthError>)
   public func registerPushToken(_ token: Foundation.Data, completion: @escaping UnifyID.SuccessCallback<PushAuthError>)
@@ -26,6 +1370,1754 @@ public class PushAuth {
   public func pushAuthRequest(_ notification: UserNotifications.UNNotification) -> PushAuthRequest?
   public func pushAuthRequest(_ response: UserNotifications.UNNotificationResponse) -> PushAuthRequest?
   @objc deinit
+}
+public struct Unifyid_Protobuf_TrainingPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var policyName: Swift.String
+  public var factorPolicies: [Unifyid_Protobuf_TrainingFactorPolicy]
+  public var overridePolicies: [Unifyid_Protobuf_TrainingOverridePolicy]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_TrainingFactorPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var factor: Unifyid_Protobuf_FactorType {
+    get
+    set
+  }
+  public var trainingWeight: Swift.Double {
+    get
+    set
+  }
+  public var trainingDefaultPercentage: Swift.Double {
+    get
+    set
+  }
+  public var timeFactorPolicy: Unifyid_Protobuf_TrainingTimeFactorPolicy {
+    get
+    set
+  }
+  public var hasTimeFactorPolicy: Swift.Bool {
+    get
+  }
+  public mutating func clearTimeFactorPolicy()
+  public var scoreExistenceFactorPolicy: Unifyid_Protobuf_TrainingScoreExistenceFactorPolicy {
+    get
+    set
+  }
+  public var hasScoreExistenceFactorPolicy: Swift.Bool {
+    get
+  }
+  public mutating func clearScoreExistenceFactorPolicy()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_TrainingTimeFactorPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var trainingDuration: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_TrainingScoreExistenceFactorPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var checkClientScore: Swift.Bool
+  public var factorTypes: [Unifyid_Protobuf_FactorType]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_TrainingOverridePolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var type: Unifyid_Protobuf_TrainingOverridePolicy.TrainingOverrideType
+  public var comment: Swift.String
+  public var percentage: Swift.Double
+  public var clientID: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum TrainingOverrideType : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case totUnknown
+    case totAbsolute
+    case totOffset
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_TrainingPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TrainingFactorPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingFactorPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TrainingTimeFactorPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingTimeFactorPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TrainingScoreExistenceFactorPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingScoreExistenceFactorPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TrainingOverridePolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingOverridePolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_TrainingOverridePolicy.TrainingOverrideType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public enum Unifyid_V0_SensorType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknownSensor
+  case accelerometer
+  case bluetooth
+  case gyroscope
+  case rotation
+  case barometer
+  case magnetometer
+  case location
+  case wifi
+  case grip
+  case hrmIr
+  case events
+  case battery
+  case stepCounter
+  case stepDetector
+  case coarseLocation
+  case walkCycle
+  case clientSnapshot
+  case logs
+  case telemetry
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_ClientConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var triggers: Unifyid_V0_Triggers {
+    get
+    set
+  }
+  public var hasTriggers: Swift.Bool {
+    get
+  }
+  public mutating func clearTriggers()
+  public var beaconConfig: Unifyid_V0_BeaconConfig {
+    get
+    set
+  }
+  public var hasBeaconConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearBeaconConfig()
+  public var sentryConfig: Unifyid_V0_SentryConfig {
+    get
+    set
+  }
+  public var hasSentryConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearSentryConfig()
+  public var algorithms: Unifyid_V0_AlgorithmsConfig {
+    get
+    set
+  }
+  public var hasAlgorithms: Swift.Bool {
+    get
+  }
+  public mutating func clearAlgorithms()
+  public var loggingConfig: Unifyid_V0_LoggingConfig {
+    get
+    set
+  }
+  public var hasLoggingConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearLoggingConfig()
+  public var configPollInterval: Swift.Int64 {
+    get
+    set
+  }
+  public var ptaConfig: Unifyid_V0_PTAConfig {
+    get
+    set
+  }
+  public var hasPtaConfig: Swift.Bool {
+    get
+  }
+  public mutating func clearPtaConfig()
+  public var triggerDetections: Unifyid_V0_TriggerDetections {
+    get
+    set
+  }
+  public var hasTriggerDetections: Swift.Bool {
+    get
+  }
+  public mutating func clearTriggerDetections()
+  public var killSwitches: [Unifyid_V0_KillSwitch] {
+    get
+    set
+  }
+  public var dataCollectionEnabled: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Triggers : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var onStart: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasOnStart: Swift.Bool {
+    get
+  }
+  public mutating func clearOnStart()
+  public var appForeground: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasAppForeground: Swift.Bool {
+    get
+  }
+  public mutating func clearAppForeground()
+  public var appBackground: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasAppBackground: Swift.Bool {
+    get
+  }
+  public mutating func clearAppBackground()
+  public var deviceLock: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasDeviceLock: Swift.Bool {
+    get
+  }
+  public mutating func clearDeviceLock()
+  public var deviceUnlock: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasDeviceUnlock: Swift.Bool {
+    get
+  }
+  public mutating func clearDeviceUnlock()
+  public var moveDetected: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasMoveDetected: Swift.Bool {
+    get
+  }
+  public mutating func clearMoveDetected()
+  public var idleDetected: Unifyid_V0_TriggerBehavior {
+    get
+    set
+  }
+  public var hasIdleDetected: Swift.Bool {
+    get
+  }
+  public mutating func clearIdleDetected()
+  public var eventDetected: [Unifyid_V0_EventDetected] {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_TriggerBehavior : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var uploadConfigAction: Unifyid_V0_UploadConfigAction {
+    get
+    set
+  }
+  public var hasUploadConfigAction: Swift.Bool {
+    get
+  }
+  public mutating func clearUploadConfigAction()
+  public var sensorCollectionAction: Unifyid_V0_SensorCollectionAction {
+    get
+    set
+  }
+  public var hasSensorCollectionAction: Swift.Bool {
+    get
+  }
+  public mutating func clearSensorCollectionAction()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_EventDetected : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var eventMatchConfig: [Unifyid_V0_EventDetected.EventMatchConfig] {
+    get
+    set
+  }
+  public var uploadConfigAction: Unifyid_V0_UploadConfigAction {
+    get
+    set
+  }
+  public var hasUploadConfigAction: Swift.Bool {
+    get
+  }
+  public mutating func clearUploadConfigAction()
+  public var sensorCollectionAction: Unifyid_V0_SensorCollectionAction {
+    get
+    set
+  }
+  public var hasSensorCollectionAction: Swift.Bool {
+    get
+  }
+  public mutating func clearSensorCollectionAction()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public struct EventMatchConfig : SwiftProtobuf.Message {
+    public static let protoMessageName: Swift.String
+    public var actionName: Swift.String
+    public var metadata: Swift.Dictionary<Swift.String, Swift.String>
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+    public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+    public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_SensorCollectionAction : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var sensorConfigs: [Unifyid_V0_SensorCollectionAction.SensorConfig]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public struct SensorConfig : SwiftProtobuf.Message {
+    public static let protoMessageName: Swift.String
+    public var type: Unifyid_V0_SensorType {
+      get
+      set
+    }
+    public var rate: Swift.Int32 {
+      get
+      set
+    }
+    public var duration: Swift.Int32 {
+      get
+      set
+    }
+    public var additionalData: Unifyid_V0_SensorConfigAdditionalData {
+      get
+      set
+    }
+    public var hasAdditionalData: Swift.Bool {
+      get
+    }
+    public mutating func clearAdditionalData()
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+    public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+    public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_SensorConfigAdditionalData : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var eventActionNames: [Swift.String]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_UploadConfigAction : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var networkType: Unifyid_V0_UploadConfigAction.NetworkType
+  public var maxUploadSize: Swift.Int64
+  public var minUploadSize: Swift.Int64
+  public var period: Swift.Int64
+  public var uploadStrategy: Unifyid_V0_UploadConfigAction.UploadStrategy
+  public var uploadWindow: Swift.Int64
+  public var uploadApi: Unifyid_V0_UploadConfigAction.UploadAPI
+  public var androidUploadApi: Unifyid_V0_UploadConfigAction.UploadAPI
+  public var iosUploadApi: Unifyid_V0_UploadConfigAction.UploadAPI
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum NetworkType : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case unknownType
+    case any
+    case wifi
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum UploadStrategy : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case unknownStrategy
+    case fifo
+    case latestWindow
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public enum UploadAPI : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case s3
+    case ingest
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_SensorType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_ClientConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_ClientConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Triggers : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Triggers) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_TriggerBehavior : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_TriggerBehavior) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_EventDetected : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_EventDetected) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_EventDetected.EventMatchConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_EventDetected.EventMatchConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_SensorCollectionAction : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SensorCollectionAction) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_SensorCollectionAction.SensorConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SensorCollectionAction.SensorConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_SensorConfigAdditionalData : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SensorConfigAdditionalData) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_UploadConfigAction : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_UploadConfigAction) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_UploadConfigAction.NetworkType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_UploadConfigAction.UploadStrategy : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_UploadConfigAction.UploadAPI : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public enum Unifyid_V0_ColumnLayout : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case row
+  case column
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_SensorDataPacket : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var sensor: Unifyid_V0_SensorType {
+    get
+    set
+  }
+  public var metadata: Unifyid_V0_CsvMetadata {
+    get
+    set
+  }
+  public var hasMetadata: Swift.Bool {
+    get
+  }
+  public mutating func clearMetadata()
+  public var packet: Foundation.Data {
+    get
+    set
+  }
+  public var timestampOffset: Swift.Double {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_DoubleMatrix : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var rows: Swift.UInt32
+  public var cols: Swift.UInt32
+  public var data: [Swift.Float]
+  public var layout: Unifyid_V0_ColumnLayout
+  public var fieldNames: [Swift.String]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Result : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var timestamp: Swift.Int64
+  public var probability: Swift.Float
+  public var confidence: Swift.Float
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_ColumnLayout : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_SensorDataPacket : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SensorDataPacket) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_DoubleMatrix : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_DoubleMatrix) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Result : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Result) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_UserModel : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var version: Swift.String
+  public var updatedAt: Swift.Int64
+  public var numFeatures: Swift.Int64
+  public var modelData: Foundation.Data
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_NDArray : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var data: Foundation.Data
+  public var shape: [Swift.Int32]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_GaitUBM : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var nComponents: Swift.Int32 {
+    get
+    set
+  }
+  public var covarianceType: Swift.String {
+    get
+    set
+  }
+  public var covariances: Unifyid_V0_NDArray {
+    get
+    set
+  }
+  public var hasCovariances: Swift.Bool {
+    get
+  }
+  public mutating func clearCovariances()
+  public var means: Unifyid_V0_NDArray {
+    get
+    set
+  }
+  public var hasMeans: Swift.Bool {
+    get
+  }
+  public mutating func clearMeans()
+  public var precisions: Unifyid_V0_NDArray {
+    get
+    set
+  }
+  public var hasPrecisions: Swift.Bool {
+    get
+  }
+  public mutating func clearPrecisions()
+  public var precisionsCholesky: Unifyid_V0_NDArray {
+    get
+    set
+  }
+  public var hasPrecisionsCholesky: Swift.Bool {
+    get
+  }
+  public mutating func clearPrecisionsCholesky()
+  public var weights: Unifyid_V0_NDArray {
+    get
+    set
+  }
+  public var hasWeights: Swift.Bool {
+    get
+  }
+  public mutating func clearWeights()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_UserModel : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_UserModel) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_NDArray : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_NDArray) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_GaitUBM : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_GaitUBM) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_FactorType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case ftUnknown
+  case ftOverride
+  case ftTime
+  case ftGait
+  case ftScoreExistence
+  case ftBluetooth
+  case ftLieFlat
+  case ftSnapshot
+  case ftDeviceLock
+  case ftDeviceUnlock
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_FactorType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public struct Unifyid_Protobuf_ScoreValue : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTimestamp: Swift.Bool {
+    get
+  }
+  public mutating func clearTimestamp()
+  public var probability: Swift.Double {
+    get
+    set
+  }
+  public var confidence: Swift.Double {
+    get
+    set
+  }
+  public var trackingID: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_FactorScoreUpdate : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var customerID: Swift.String
+  public var factor: Unifyid_Protobuf_FactorType
+  public var factorVersion: Swift.String
+  public var scores: [Unifyid_Protobuf_ScoreValue]
+  public var userID: Swift.String
+  public var saveToPostgres: Swift.Bool
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ScoreValue : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ScoreValue) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_FactorScoreUpdate : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_FactorScoreUpdate) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_ScoreFeedback : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var scoreQueryID: Swift.String
+  public var isDisplayed: Unifyid_Protobuf_OptionalBool
+  public var isRegisteredUser: Unifyid_Protobuf_OptionalBool
+  public var comment: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ScoreFeedback : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ScoreFeedback) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_DataType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case dtInvalid
+  case dtFloat
+  case dtFloat64
+  public static let dtDouble: Unifyid_Protobuf_DataType
+  case dtInt32
+  case dtString
+  case dtInt64
+  case dtBool
+  case dtTimestamp
+  case dtVarstring
+  case dtMatrix
+  case dtStruct
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_DataType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public struct Unifyid_V0_SentryConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var dsn: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_SentryConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SentryConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_ContentEncoding : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case ceInvalid
+  case ceIdentity
+  case ceSodiumCryptobox
+  case ceSodiumCryptosign
+  case ceGzip
+  case ceZlib
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_EnvelopeType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case etInvalid
+  case etEnvelope
+  case etDataPacket
+  case etDataPacketRef
+  case etDataFrames
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_Envelope : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Swift.Int32
+  public var encoding: Unifyid_Protobuf_ContentEncoding
+  public var type: Unifyid_Protobuf_EnvelopeType
+  public var body: Foundation.Data
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ContentEncoding : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_EnvelopeType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_Envelope : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Envelope) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_Services_PTAStatus : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unspecified
+  case accept
+  case reject
+  case error
+  case ptasAck
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_Services_PTANotificationStatus : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case ptansUnknown
+  case ptansAccepted
+  case ptansRejected
+  case ptansSent
+  case ptansErrored
+  case ptansExpired
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_Services_RegisterClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerUserID: Swift.String
+  public var customerID: Swift.String
+  public var signKeyType: Unifyid_V0_SignKeyType
+  public var signPubKey: Foundation.Data
+  public var timestamp: Swift.Int64
+  public var customerIdentityChallenge: Swift.String
+  public var clientSignature: Foundation.Data
+  public var sdkAccessKey: Swift.String
+  public var sdkSignature: Foundation.Data
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RegisterClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var signKeyID: Swift.String {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_UpdateClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var platform: Unifyid_V0_PlatformType {
+    get
+    set
+  }
+  public var platformVersion: Swift.String {
+    get
+    set
+  }
+  public var deviceModel: Swift.String {
+    get
+    set
+  }
+  public var deviceManufacturer: Swift.String {
+    get
+    set
+  }
+  public var sdkVersion: Swift.String {
+    get
+    set
+  }
+  public var appName: Swift.String {
+    get
+    set
+  }
+  public var appVersion: Swift.String {
+    get
+    set
+  }
+  public var userReportedMetadata: SwiftProtobuf.Google_Protobuf_Struct {
+    get
+    set
+  }
+  public var hasUserReportedMetadata: Swift.Bool {
+    get
+  }
+  public mutating func clearUserReportedMetadata()
+  public var telephoneCarrier: Swift.String {
+    get
+    set
+  }
+  public var rooted: Swift.Bool {
+    get
+    set
+  }
+  public var passcodeEnabled: Swift.Bool {
+    get
+    set
+  }
+  public var vpnActive: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_UpdateClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var result: Unifyid_V0_Client {
+    get
+    set
+  }
+  public var hasResult: Swift.Bool {
+    get
+  }
+  public mutating func clearResult()
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_ListClientsRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var userID: Swift.String
+  public var customerUserID: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_ListClientsReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clients: [Unifyid_V0_Client] {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RemoveClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RemoveClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientPublicKeyRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientPublicKeyReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var key: Unifyid_V0_SignPublicKey {
+    get
+    set
+  }
+  public var hasKey: Swift.Bool {
+    get
+  }
+  public mutating func clearKey()
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetUserRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetUserReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var userID: Swift.String {
+    get
+    set
+  }
+  public var customerUserID: Swift.String {
+    get
+    set
+  }
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetCustomerRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetCustomerReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customer: Unifyid_V0_Customer {
+    get
+    set
+  }
+  public var hasCustomer: Swift.Bool {
+    get
+  }
+  public mutating func clearCustomer()
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_ListCustomersRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var internalName: Swift.String
+  public var limit: Swift.Int64
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_ListCustomersReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customers: [Unifyid_V0_Customer] {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_CreateCustomerRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var customerName: Swift.String
+  public var internalName: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_CreateCustomerReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customer: Unifyid_V0_Customer {
+    get
+    set
+  }
+  public var hasCustomer: Swift.Bool {
+    get
+  }
+  public mutating func clearCustomer()
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_DeleteCustomerRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_DeleteCustomerReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientAccessTokenRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var customerID: Swift.String
+  public var customerUserID: Swift.String
+  public var userID: Swift.String
+  public var timestamp: Swift.Int64
+  public var clientSignature: Foundation.Data
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetClientAccessTokenReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var token: Swift.String {
+    get
+    set
+  }
+  public var expires: Swift.Int64 {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RegisterPendingClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var accountID: Swift.String
+  public var signKeyType: Unifyid_V0_SignKeyType
+  public var signPubKey: Foundation.Data
+  public var ip: Swift.String
+  public var platform: Unifyid_V0_PlatformType
+  public var platformVersion: Swift.String
+  public var userAgent: Swift.String
+  public var deviceModel: Swift.String
+  public var deviceManufacturer: Swift.String
+  public var sdkVersion: Swift.String
+  public var isLocalStorageAvailable: Swift.Bool
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_RegisterPendingClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_SubscribeClientRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var deviceToken: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_SubscribeClientReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var created: Swift.Bool {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_PTANotificationRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var status: Unifyid_V0_Services_PTAStatus
+  public var detail: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_PTANotificationReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_PTANotificationsReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var notifications: [Unifyid_V0_Services_PTANotification] {
+    get
+    set
+  }
+  public var total: Swift.Int32 {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_PTANotification : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var id: Swift.String {
+    get
+    set
+  }
+  public var status: Unifyid_V0_Services_PTANotificationStatus {
+    get
+    set
+  }
+  public var createdAt: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasCreatedAt: Swift.Bool {
+    get
+  }
+  public mutating func clearCreatedAt()
+  public var body: SwiftProtobuf.Google_Protobuf_Struct {
+    get
+    set
+  }
+  public var hasBody: Swift.Bool {
+    get
+  }
+  public mutating func clearBody()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetSDKAccessTokenRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var installID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetSDKAccessTokenReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var token: Swift.String {
+    get
+    set
+  }
+  public var expires: Swift.Int64 {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_Services_PTAStatus : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_Services_PTANotificationStatus : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_Services_RegisterClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RegisterClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RegisterClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RegisterClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_UpdateClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_UpdateClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_UpdateClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_UpdateClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_ListClientsRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_ListClientsRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_ListClientsReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_ListClientsReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RemoveClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RemoveClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RemoveClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RemoveClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientPublicKeyRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientPublicKeyRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientPublicKeyReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientPublicKeyReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetUserRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetUserRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetUserReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetUserReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetCustomerRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetCustomerRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetCustomerReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetCustomerReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_ListCustomersRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_ListCustomersRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_ListCustomersReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_ListCustomersReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_CreateCustomerRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_CreateCustomerRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_CreateCustomerReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_CreateCustomerReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_DeleteCustomerRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_DeleteCustomerRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_DeleteCustomerReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_DeleteCustomerReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientAccessTokenRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientAccessTokenRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetClientAccessTokenReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetClientAccessTokenReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RegisterPendingClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RegisterPendingClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_RegisterPendingClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_RegisterPendingClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_SubscribeClientRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_SubscribeClientRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_SubscribeClientReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_SubscribeClientReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_PTANotificationRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_PTANotificationRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_PTANotificationReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_PTANotificationReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_PTANotificationsReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_PTANotificationsReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_PTANotification : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_PTANotification) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetSDKAccessTokenRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetSDKAccessTokenRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetSDKAccessTokenReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetSDKAccessTokenReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public protocol PushAuthResponse {
   var responseCode: Swift.Int { get }
@@ -58,7 +3150,814 @@ public enum DirectResponse : PushAuthResponse {
   case reject(_: Swift.String? = nil)
   case error(_: Swift.String? = nil)
 }
-public class PushAuthRequest {
+public enum Unifyid_V0_SignKeyType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknown
+  case ed25519
+  case rsa
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_ErrorCode : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case internalError
+  case invalidArgument
+  case badRequest
+  case unauthorized
+  case forbidden
+  case notFound
+  case notImplemented
+  case requestTimeout
+  case timeDriftExceeded
+  case invalidCustomerID
+  case notConfigured
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_User : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var userID: Swift.String
+  public var customerUserID: Swift.String
+  public var customerID: Swift.String
+  public var clientIds: [Swift.String]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Client : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var userID: Swift.String {
+    get
+    set
+  }
+  public var signKeyID: Swift.String {
+    get
+    set
+  }
+  public var signPublicKey: Foundation.Data {
+    get
+    set
+  }
+  public var signKeyType: Unifyid_V0_SignKeyType {
+    get
+    set
+  }
+  public var revoked: Swift.Bool {
+    get
+    set
+  }
+  public var platform: Swift.String {
+    get
+    set
+  }
+  public var platformVersion: Swift.String {
+    get
+    set
+  }
+  public var deviceModel: Swift.String {
+    get
+    set
+  }
+  public var deviceManufacturer: Swift.String {
+    get
+    set
+  }
+  public var sdkVersion: Swift.String {
+    get
+    set
+  }
+  public var appName: Swift.String {
+    get
+    set
+  }
+  public var userReportedMetadata: SwiftProtobuf.Google_Protobuf_Struct {
+    get
+    set
+  }
+  public var hasUserReportedMetadata: Swift.Bool {
+    get
+  }
+  public mutating func clearUserReportedMetadata()
+  public var telephoneCarrier: Swift.String {
+    get
+    set
+  }
+  public var rooted: Swift.Bool {
+    get
+    set
+  }
+  public var passcodeEnabled: Swift.Bool {
+    get
+    set
+  }
+  public var vpnActive: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Customer : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var customerID: Swift.String
+  public var customerName: Swift.String
+  public var internalName: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Error : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var message: Swift.String
+  public var code: Unifyid_V0_ErrorCode
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_SignPublicKey : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var id: Swift.String
+  public var keyType: Unifyid_V0_SignKeyType
+  public var publicKey: Foundation.Data
+  public var fingerprint: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_SignKeyType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_ErrorCode : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_User : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_User) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Client : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Client) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Customer : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Customer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Error : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Error) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_SignPublicKey : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_SignPublicKey) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_BeaconType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknownType
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_BeaconConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var enabled: Swift.Bool
+  public var beaconMatches: [Unifyid_V0_BeaconMatch]
+  public var uploadProximityThreshold: Swift.Int64
+  public var scoreProximityThreshold: Swift.Int64
+  public var scoreInterval: Swift.Int64
+  public var enableNotifications: Swift.Bool
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_BeaconMatch : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var uuid: Swift.String {
+    get
+    set
+  }
+  public var major: Swift.UInt32 {
+    get
+    set
+  }
+  public var minor: Swift.UInt32 {
+    get
+    set
+  }
+  public var beaconType: Unifyid_V0_BeaconType {
+    get
+    set
+  }
+  public var override: Unifyid_V0_ThresholdOverride {
+    get
+    set
+  }
+  public var hasOverride: Swift.Bool {
+    get
+  }
+  public mutating func clearOverride()
+  public var name: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_ThresholdOverride : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var uploadProximityThresholdOverride: Swift.Int64
+  public var scoreProximityThresholdOverride: Swift.Int64
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_BeaconType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_BeaconConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_BeaconConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_BeaconMatch : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_BeaconMatch) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_ThresholdOverride : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_ThresholdOverride) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_ComponentScoreAlgType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case csatUnknown
+  case csatBasicCinderella
+  case csatSessionizedCinderella
+  case csatSimpleStat
+  case csatHmm
+  case csatPossession
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_ComponentScoreAlg : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var algType: Unifyid_Protobuf_ComponentScoreAlgType {
+    get
+    set
+  }
+  public var basicCinderellaParams: Unifyid_Protobuf_BasicCinderellaParameters {
+    get
+    set
+  }
+  public var hasBasicCinderellaParams: Swift.Bool {
+    get
+  }
+  public mutating func clearBasicCinderellaParams()
+  public var sessionizedCinderellaParams: Unifyid_Protobuf_SessionizedCinderellaParameters {
+    get
+    set
+  }
+  public var hasSessionizedCinderellaParams: Swift.Bool {
+    get
+  }
+  public mutating func clearSessionizedCinderellaParams()
+  public var simpleStatParams: Unifyid_Protobuf_SimpleStatParameters {
+    get
+    set
+  }
+  public var hasSimpleStatParams: Swift.Bool {
+    get
+  }
+  public mutating func clearSimpleStatParams()
+  public var hmmScoringAlgorithmParams: Unifyid_Protobuf_HmmScoringAlgorithmParameters {
+    get
+    set
+  }
+  public var hasHmmScoringAlgorithmParams: Swift.Bool {
+    get
+  }
+  public mutating func clearHmmScoringAlgorithmParams()
+  public var possessionUnlockParams: Unifyid_Protobuf_PossessionUnlockParameters {
+    get
+    set
+  }
+  public var hasPossessionUnlockParams: Swift.Bool {
+    get
+  }
+  public mutating func clearPossessionUnlockParams()
+  public var minimumScore: Swift.Double {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_BasicCinderellaParameters : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var highScoreThreshold: Swift.Double
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_SessionizedCinderellaParameters : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var highScoreThreshold: Swift.Double {
+    get
+    set
+  }
+  public var minSessionSize: Swift.Int32 {
+    get
+    set
+  }
+  public var sessionGapDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasSessionGapDuration: Swift.Bool {
+    get
+  }
+  public mutating func clearSessionGapDuration()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_SimpleStatParameters : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var statType: Unifyid_Protobuf_SimpleStatParameters.SimpleStatType
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public enum SimpleStatType : SwiftProtobuf.Enum {
+    public typealias RawValue = Swift.Int
+    case sstUnknown
+    case sstAverage
+    case sstMedian
+    case UNRECOGNIZED(Swift.Int)
+    public init()
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_HmmScoringAlgorithmParameters : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var authenticationThreshold: Swift.Double {
+    get
+    set
+  }
+  public var maxNumObservations: Swift.Int32 {
+    get
+    set
+  }
+  public var offBodyDecayTime: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasOffBodyDecayTime: Swift.Bool {
+    get
+  }
+  public mutating func clearOffBodyDecayTime()
+  public var tp00: Swift.Float {
+    get
+    set
+  }
+  public var tp01: Swift.Float {
+    get
+    set
+  }
+  public var tp10: Swift.Float {
+    get
+    set
+  }
+  public var tp11: Swift.Float {
+    get
+    set
+  }
+  public var tp20: Swift.Float {
+    get
+    set
+  }
+  public var tp21: Swift.Float {
+    get
+    set
+  }
+  public var ep00: Swift.Float {
+    get
+    set
+  }
+  public var ep01: Swift.Float {
+    get
+    set
+  }
+  public var ep10: Swift.Float {
+    get
+    set
+  }
+  public var ep11: Swift.Float {
+    get
+    set
+  }
+  public var ep20: Swift.Float {
+    get
+    set
+  }
+  public var ep21: Swift.Float {
+    get
+    set
+  }
+  public var sp0: Swift.Float {
+    get
+    set
+  }
+  public var sp1: Swift.Float {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_PossessionUnlockParameters : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var unlockFactorDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasUnlockFactorDuration: Swift.Bool {
+    get
+  }
+  public mutating func clearUnlockFactorDuration()
+  public var biometricOnly: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ComponentScoreAlgType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_ComponentScoreAlg : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ComponentScoreAlg) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_BasicCinderellaParameters : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_BasicCinderellaParameters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_SessionizedCinderellaParameters : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_SessionizedCinderellaParameters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_SimpleStatParameters : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_SimpleStatParameters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_SimpleStatParameters.SimpleStatType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_HmmScoringAlgorithmParameters : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_HmmScoringAlgorithmParameters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_PossessionUnlockParameters : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_PossessionUnlockParameters) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_UpdateType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case utUnknown
+  case utAbsolute
+  case utIncrement
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_TrainingStatusUpdate : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var clientID: Swift.String {
+    get
+    set
+  }
+  public var customerID: Swift.String {
+    get
+    set
+  }
+  public var factor: Unifyid_Protobuf_FactorType {
+    get
+    set
+  }
+  public var factorVersion: Swift.String {
+    get
+    set
+  }
+  public var percentage: Swift.Double {
+    get
+    set
+  }
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasTimestamp: Swift.Bool {
+    get
+  }
+  public mutating func clearTimestamp()
+  public var updateType: Unifyid_Protobuf_UpdateType {
+    get
+    set
+  }
+  public var userID: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_UpdateType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_TrainingStatusUpdate : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_TrainingStatusUpdate) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_NumericMatrix : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var dtype: Unifyid_Protobuf_DataType
+  public var shape: [Swift.Int32]
+  public var columnOrder: Swift.Bool
+  public var floatVal: [Swift.Float]
+  public var doubleVal: [Swift.Double]
+  public var intVal: [Swift.Int32]
+  public var int64Val: [Swift.Int64]
+  public var boolVal: [Swift.Bool]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_NumericMatrix : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_NumericMatrix) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_Services_GetAccessDeviceScoresReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var scores: [Unifyid_V0_Services_Score] {
+    get
+    set
+  }
+  public var error: Unifyid_V0_Error {
+    get
+    set
+  }
+  public var hasError: Swift.Bool {
+    get
+  }
+  public mutating func clearError()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_Score : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var client: Unifyid_V0_Services_ClientMeta {
+    get
+    set
+  }
+  public var hasClient: Swift.Bool {
+    get
+  }
+  public mutating func clearClient()
+  public var device: Unifyid_V0_Services_Device {
+    get
+    set
+  }
+  public var hasDevice: Swift.Bool {
+    get
+  }
+  public mutating func clearDevice()
+  public var queriedAt: Swift.String {
+    get
+    set
+  }
+  public var producedAt: Swift.String {
+    get
+    set
+  }
+  public var confidence: Swift.String {
+    get
+    set
+  }
+  public var probability: Swift.String {
+    get
+    set
+  }
+  public var trackingID: Swift.String {
+    get
+    set
+  }
+  public var isFeedbackSubmitted: Swift.Bool {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_ClientMeta : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var name: Swift.String
+  public var id: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_Device : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var commonName: Swift.String
+  public var model: Swift.String
+  public var platform: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_GetAccessDeviceScoresRequest : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var accountID: Swift.String {
+    get
+    set
+  }
+  public var timeWindow: Unifyid_V0_Services_TimeWindow {
+    get
+    set
+  }
+  public var hasTimeWindow: Swift.Bool {
+    get
+  }
+  public mutating func clearTimeWindow()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_Services_TimeWindow : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var start: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasStart: Swift.Bool {
+    get
+  }
+  public mutating func clearStart()
+  public var end: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get
+    set
+  }
+  public var hasEnd: Swift.Bool {
+    get
+  }
+  public mutating func clearEnd()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_Services_GetAccessDeviceScoresReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetAccessDeviceScoresReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_Score : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_Score) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_ClientMeta : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_ClientMeta) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_Device : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_Device) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_GetAccessDeviceScoresRequest : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_GetAccessDeviceScoresRequest) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_Services_TimeWindow : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_Services_TimeWindow) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PushAuthRequest {
   final public let notificationID: Swift.String
   final public let userResponse: UserResponse
   final public let title: Swift.String
@@ -69,6 +3968,228 @@ public class PushAuthRequest {
   public func presentAsAlert(_ presentingViewController: UIKit.UIViewController, completion: UnifyID.Callback<UserResponse, PushAuthError>? = nil)
   @objc deinit
 }
+public enum Unifyid_V0_OBDVersion : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknownObdVersion
+  case v01
+  case v02
+  case v03
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_V0_WCEVersion : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case unknownWceVersion
+  case zerocrossV10
+  case lseV10
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_V0_AlgorithmsConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var obd: Unifyid_V0_OBDConfig {
+    get
+    set
+  }
+  public var hasObd: Swift.Bool {
+    get
+  }
+  public mutating func clearObd()
+  public var wce: Unifyid_V0_WCEConfig {
+    get
+    set
+  }
+  public var hasWce: Swift.Bool {
+    get
+  }
+  public mutating func clearWce()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_OBDConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Unifyid_V0_OBDVersion
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_V0_WCEConfig : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Unifyid_V0_WCEVersion
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_V0_OBDVersion : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_WCEVersion : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_V0_AlgorithmsConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_AlgorithmsConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_OBDConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_OBDConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_V0_WCEConfig : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_V0_WCEConfig) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_SDKProfiles : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var profiles: [Unifyid_Protobuf_SDKProfile]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_SDKProfile : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var id: Swift.String
+  public var name: Swift.String
+  public var description_p: Swift.String
+  public var apiKey: Swift.String
+  public var appID: Swift.String
+  public var apiBaseURL: Swift.String
+  public var customerID: Swift.String
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_SDKProfiles : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_SDKProfiles) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_SDKProfile : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_SDKProfile) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_ClientScorePolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var componentScorePolicies: [Unifyid_Protobuf_ComponentScorePolicy] {
+    get
+    set
+  }
+  public var factorScoreDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasFactorScoreDuration: Swift.Bool {
+    get
+  }
+  public mutating func clearFactorScoreDuration()
+  public var cutoffPolicies: [Unifyid_Protobuf_FactorScoreCutoffPolicy] {
+    get
+    set
+  }
+  public var versionName: Swift.String {
+    get
+    set
+  }
+  public var semver: Swift.String {
+    get
+    set
+  }
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_ListScorePoliciesReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var allVersionsByID: Swift.Dictionary<Swift.Int32, Swift.String>
+  public var routes: [Unifyid_Protobuf_ListScorePoliciesReply.PolicyRouteInfo]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public struct PolicyRouteInfo : SwiftProtobuf.Message {
+    public static let protoMessageName: Swift.String
+    public var routeID: Swift.Int32
+    public var matchType: Swift.String
+    public var uuid: Swift.String
+    public var policyID: Swift.Int32
+    public var displayPriority: Swift.Int32
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+    public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+    public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  }
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_GetScorePolicyReply : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var policy: Unifyid_Protobuf_ClientScorePolicy {
+    get
+    set
+  }
+  public var hasPolicy: Swift.Bool {
+    get
+  }
+  public mutating func clearPolicy()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ClientScorePolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ClientScorePolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_ListScorePoliciesReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ListScorePoliciesReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_ListScorePoliciesReply.PolicyRouteInfo : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_ListScorePoliciesReply.PolicyRouteInfo) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_GetScorePolicyReply : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_GetScorePolicyReply) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 public enum PushAuthError : Foundation.LocalizedError {
   case unableToRegisterPushToken(_: Swift.Error)
   case unableToRetrievePending(_: Swift.Error)
@@ -77,7 +4198,218 @@ public enum PushAuthError : Foundation.LocalizedError {
   case notEnabled
   case cancelled
   case doNotDirectlyInitialize
+  case userRequired
   public var errorDescription: Swift.String? {
+    get
+  }
+}
+public enum Unifyid_Protobuf_OptionalBool : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case obUnspecified
+  case obNo
+  case obYes
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_OptionalBool : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+public struct Unifyid_Protobuf_DataBuffer : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var version: Swift.Int32
+  public var name: Swift.String
+  public var dtype: Unifyid_Protobuf_DataType
+  public var shape: [Swift.Int32]
+  public var columnOrder: Swift.Bool
+  public var floatVal: [Swift.Float]
+  public var doubleVal: [Swift.Double]
+  public var intVal: [Swift.Int32]
+  public var stringVal: [Foundation.Data]
+  public var int64Val: [Swift.Int64]
+  public var boolVal: [Swift.Bool]
+  public var timestampVal: [SwiftProtobuf.Google_Protobuf_Timestamp]
+  public var varstringVal: [Swift.String]
+  public var matrixVal: [Unifyid_Protobuf_NumericMatrix]
+  public var structVal: [SwiftProtobuf.Google_Protobuf_Struct]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_DataBuffer : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_DataBuffer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_FactorScoreCutoffType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case fscptUnknown
+  case fscptExistence
+  case fscptScoreDecay
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_FactorScoreCutoffPolicy : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var type: Unifyid_Protobuf_FactorScoreCutoffType {
+    get
+    set
+  }
+  public var existenceParam: Unifyid_Protobuf_FactorScoreCutoffExistenceParam {
+    get
+    set
+  }
+  public var hasExistenceParam: Swift.Bool {
+    get
+  }
+  public mutating func clearExistenceParam()
+  public var scoreDecayParam: Unifyid_Protobuf_FactorScoreCutoffScoreDecayParam {
+    get
+    set
+  }
+  public var hasScoreDecayParam: Swift.Bool {
+    get
+  }
+  public mutating func clearScoreDecayParam()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_FactorScoreCutoffExistenceParam : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var factorType: Unifyid_Protobuf_FactorType
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_FactorScoreCutoffScoreDecayParam : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var factorType: Unifyid_Protobuf_FactorType {
+    get
+    set
+  }
+  public var goodScoreThreshold: Swift.Double {
+    get
+    set
+  }
+  public var goodScoreDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasGoodScoreDuration: Swift.Bool {
+    get
+  }
+  public mutating func clearGoodScoreDuration()
+  public var badScoreThreshold: Swift.Double {
+    get
+    set
+  }
+  public var badScoreDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get
+    set
+  }
+  public var hasBadScoreDuration: Swift.Bool {
+    get
+  }
+  public mutating func clearBadScoreDuration()
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_FactorScoreCutoffType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_FactorScoreCutoffPolicy : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_FactorScoreCutoffPolicy) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_FactorScoreCutoffExistenceParam : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_FactorScoreCutoffExistenceParam) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_FactorScoreCutoffScoreDecayParam : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_FactorScoreCutoffScoreDecayParam) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Unifyid_Protobuf_ValueType : SwiftProtobuf.Enum {
+  public typealias RawValue = Swift.Int
+  case invalidValueType
+  case null
+  case bool
+  case int
+  case double
+  case string
+  case boolList
+  case intList
+  case doubleList
+  case stringList
+  case UNRECOGNIZED(Swift.Int)
+  public init()
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct Unifyid_Protobuf_Struct : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var fields: Swift.Dictionary<Swift.String, Unifyid_Protobuf_Value>
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+public struct Unifyid_Protobuf_Value : SwiftProtobuf.Message {
+  public static let protoMessageName: Swift.String
+  public var type: Unifyid_Protobuf_ValueType
+  public var boolVal: Swift.Bool
+  public var intVal: Swift.Int64
+  public var doubleVal: Swift.Double
+  public var stringVal: Swift.String
+  public var boolList: [Swift.Bool]
+  public var intList: [Swift.Int64]
+  public var doubleList: [Swift.Double]
+  public var stringList: [Swift.String]
+  public var unknownFields: SwiftProtobuf.UnknownStorage
+  public init()
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+}
+extension Unifyid_Protobuf_ValueType : SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+}
+extension Unifyid_Protobuf_Struct : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Struct) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Unifyid_Protobuf_Value : SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public func _protobuf_generated_isEqualTo(other: Unifyid_Protobuf_Value) -> Swift.Bool
+  public var hashValue: Swift.Int {
     get
   }
 }

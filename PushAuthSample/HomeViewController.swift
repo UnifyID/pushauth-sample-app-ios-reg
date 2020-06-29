@@ -9,29 +9,56 @@ import UnifyID
 import PushAuth
 
 /// View controller instance where user will receive their PushAuth notification.
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
         
     // MARK: - Private properties
     
-    /// Observer for incoming user notification, including PushAuthRequest notifications.
-    var userNotificationObserver: UserNotificationObserver?
+    @IBOutlet private weak var userLabel: UILabel!
     
-    // MARK: - Public methods
+    /// Observer for incoming user notification, including PushAuthRequest notifications.
+    private var userNotificationObserver: UserNotificationObserver? {
+        didSet {
+            oldValue?.deregisterHandlers()
+        }
+    }
+    
+    // MARK: - Overridden methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDeviceTokenObserver()
+        
+        setupUserLabel()
+        setupUserNotificationObserver()
+        setupAppForegroundTransitionObserver()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)        
+        checkPushNotifAuthorization()
+    }
+    
+    override func configScreenUpdateSucceeded() {
+        super.configScreenUpdateSucceeded()
+        
+        setupUserLabel()
+        setupUserNotificationObserver()
+    }
+    
+    // MARK: - Setup methods
+    
+    private func setupUserLabel() {
+        let user = UnifyConfigurationStore.getConfig(key: .user) ?? "N/A"
+        userLabel.text = "User: \(user)"
     }
     
     /// Sets up notification observer for this instance.
     /// - note: This method will utilize the configuration stored in `UnifyConfigurationStore`.
     /// Please make sure it has the correct value beforehand, e.g. by assigning it from ConfigViewController.
-    func setupUserNotificationObserver() {
-        
+    private func setupUserNotificationObserver() {
         guard let sdkKey = UnifyConfigurationStore.getConfig(key: .sdkKey),
             let user = UnifyConfigurationStore.getConfig(key: .user) else {
-                let error = HomeViewControllerError.incompleteConfiguration
-                presentError(error)
+                let error = UnifyConfigurationError.emptyUserAndSDKKey
+                presentAlert(for: error)
                 return
         }
         
@@ -41,39 +68,21 @@ class HomeViewController: UIViewController {
             unifyID = try UnifyID(sdkKey: sdkKey, user: user, challenge: "")
         } catch {
             let wrappingError = HomeViewControllerError.unifyIDCreationFailed(underlyingError: error)
-            presentError(wrappingError)
+            presentAlert(for: wrappingError)
+            return
+        }
+        
+        guard let deviceToken = UnifyConfigurationStore.getConfig(key: .deviceToken) else {
+            let error = UnifyConfigurationError.invalidDeviceToken
+            presentAlert(for: error)
             return
         }
         
         userNotificationObserver = createUserNotificationObserver(unifyID: unifyID)
-        userNotificationObserver?.requestUserNotificationPermission()
-    }
-    
-    // MARK: - Device token-related methods
-    
-    private func setupDeviceTokenObserver() {
-        let registerTokenSelector = #selector(registerDeviceToken(notification:))
-        let notificationName = AppDelegate.didReceiveDeviceToken
-        
-        NotificationCenter.default.addObserver(self, selector: registerTokenSelector, name: notificationName, object: nil)
-    }
-    
-    @objc private func registerDeviceToken(notification: Notification) {
-        
-        guard let deviceToken = notification.object as? String else {
-            let error = HomeViewControllerError.invalidDeviceTokenFormat
-            presentError(error)
-            
-            return
-        }
-        
         userNotificationObserver?.registerDeviceTokenForNotification(deviceToken: deviceToken)
     }
     
-    // MARK: - User notification-related methods
-    
     private func createUserNotificationObserver(unifyID: UnifyID) -> UserNotificationObserver {
-    
         let observer = UserNotificationObserver(unifyID: unifyID)
         
         observer.pushAuthRequestHandler = { [weak self] request in
@@ -90,11 +99,32 @@ class HomeViewController: UIViewController {
         
         observer.errorHandler = { [weak self] error in
             DispatchQueue.main.async {
-                self?.presentError(error)
+                self?.presentAlert(for: error)
             }
         }
                 
         return observer
+    }
+    
+    private func setupAppForegroundTransitionObserver() {
+        let selector = #selector(checkPushNotifAuthorization)
+        let notificationName = UIApplication.didBecomeActiveNotification
+        
+        NotificationCenter.default.addObserver(self, selector: selector, name: notificationName, object: nil)
+    }
+    
+    @objc private func checkPushNotifAuthorization() {
+        
+        userNotificationObserver?.userNotificationCenter
+            .getNotificationSettings { [weak self] settings in
+                DispatchQueue.main.async {
+                    if settings.alertSetting == .enabled {
+                        self?.userNotificationObserver?.requestPendingPushAuthRequests()
+                    } else {
+                        self?.presentAlert(for: NotificationAuthError.denied)
+                    }
+                }
+        }
     }
     
     // MARK: - Notification-presenting methods
@@ -113,10 +143,9 @@ class HomeViewController: UIViewController {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         
         switch result {
-            
         case .failure(let error):
             let wrappingError = HomeViewControllerError.pushAuthAlertFailed(underlyingError: error)
-            presentError(wrappingError)
+            self.presentAlert(for: wrappingError)
             
         case .success(let response):
             log("Successfully handled push auth as alert, user's response: \(response)")
@@ -127,35 +156,12 @@ class HomeViewController: UIViewController {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         
         let requestBody = notification.request.content.body
-        
         let alert = UIAlertController(title: "General Notification", message: requestBody, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         
-        self.present(alert, animated: true, completion: nil)
-    }
+        present(alert, animated: true)
+    }    
     
-    private func presentError(_ error: Error) {
-        
-        let errorMessage = getErrorMessage(error: error)
-        
-        let alert = UIAlertController(title: "Error", message: errorMessage, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func getErrorMessage(error: Error) -> String {
-        
-        if let observerError = error as? UserNotificationObserverError {
-            return observerError.localizedDescription
-        } else if let homeError = error as? HomeViewControllerError {
-            return homeError.localizedDescription
-        } else {
-            return error.localizedDescription
-        }
-    }
 }

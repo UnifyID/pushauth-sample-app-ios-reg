@@ -17,8 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // UnifyID works with `Data` or `String` tokens, string is easier to use
         let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-        let notification = Notification(name: AppDelegate.didReceiveDeviceToken, object: tokenString)
         
+        publishNotification(for: tokenString)
+        UnifyConfigurationStore.setConfig(key: .deviceToken, value: tokenString)
+    }
+    
+    private func publishNotification(for deviceToken: String) {
+        let notification = Notification(name: AppDelegate.didReceiveDeviceToken, object: deviceToken)
         NotificationCenter.default.post(notification)
+    }
+        
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        log("Failed to register for Remote Notification: \(error)")
     }
 }
