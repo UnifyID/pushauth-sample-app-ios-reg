@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import UnifyID
 
 class ConfigViewController: UIViewController {
 
@@ -25,25 +26,67 @@ class ConfigViewController: UIViewController {
     // MARK: - IBActions
         
     @IBAction private func dismissPage(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        presentingViewController?.dismiss(animated: true)
     }    
     
     @IBAction private func applyNewConfiguration(_ sender: Any) {
-        guard let sdkKey = sdkKeyTextField?.text,
-            let user = userTextField?.text else {
-                return
+        let sdkKey = sdkKeyTextField?.text
+        let user = userTextField?.text
+        let validationResult = validatePushAuthConfig(sdkKey: sdkKey, user: user)
+        
+        if case .failure(let error) = validationResult {
+            presentAlert(for: error)
+            return
         }
         
-        UnifyConfigurationStore.setConfig(key: .sdkKey, value: sdkKey)
-        UnifyConfigurationStore.setConfig(key: .user, value: user)
+        // At this point, the sdk key and user must be valid - they're not empty.
+        UnifyConfigurationStore.setConfig(key: .sdkKey, value: sdkKey!)
+        UnifyConfigurationStore.setConfig(key: .user, value: user!)
+                
+        let presentingVC = presentingViewController
         
-        let presentingViewController = self.presentingViewController
+        presentingVC?.dismiss(animated: true) { [weak self, weak presentingVC] in
+            guard let self = self, let presentingVC = presentingVC else {
+                return
+            }
+            self.triggerUpdateMethod(for: presentingVC)
+        }
+    }
+    
+    private func validatePushAuthConfig(sdkKey: String?, user: String?) -> Result<Void,Error> {
+        let emptySDKKey = sdkKey == nil || sdkKey == ""
+        let emptyUser = user == nil || user == ""
         
-        presentingViewController?.dismiss(animated: true, completion: { [weak presentingViewController] in
-            
-            if let homeViewController = presentingViewController as? HomeViewController {
-                homeViewController.setupUserNotificationObserver()
-            }            
-        })
+        if emptyUser && emptySDKKey {
+            return .failure(UnifyConfigurationError.emptyUserAndSDKKey)
+        } else if emptyUser {
+            return .failure(UnifyConfigurationError.emptyUser)
+        } else if emptySDKKey {
+            return .failure(UnifyConfigurationError.emptySDKKey)
+        }
+        
+        guard let nonEmptyKey = sdkKey, let nonEmptyUser = user else {
+            return .failure(UnifyConfigurationError.emptyUserAndSDKKey)
+        }
+        
+        do {
+            let _ = try UnifyID(sdkKey: nonEmptyKey, user: nonEmptyUser, challenge: "")
+            return .success(())
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+    private func triggerUpdateMethod(for presentingViewController: UIViewController) {
+        if let baseViewController = presentingViewController as? BaseViewController {
+            baseViewController.configScreenUpdateSucceeded()
+            return
+        }
+        
+        if let navController = presentingViewController as? UINavigationController,
+            let baseViewController = navController.viewControllers.last as? BaseViewController {
+            baseViewController.configScreenUpdateSucceeded()
+            return
+        }
     }
 }

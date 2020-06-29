@@ -306,16 +306,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 			<key>License</key>
 			<string>Commercial</string>
 			<key>Title</key>
-			<string>UnifyID-HumanDetect</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
-			<string>See https://unify.id/terms</string>
-			<key>License</key>
-			<string>Commercial</string>
-			<key>Title</key>
 			<string>UnifyID-PushAuth</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

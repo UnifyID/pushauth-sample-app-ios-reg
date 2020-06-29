@@ -17,16 +17,12 @@ class UserNotificationObserver: NSObject {
     
     /// The UnifyID object that's used to listen to the PushAuth.
     let unifyID: UnifyID
-    
     /// Notification center object that provides incoming notifcation object.
     let userNotificationCenter: UNUserNotificationCenter
-    
     /// Callback that gets called when this instance receives a PushAuthRequest.
     var pushAuthRequestHandler: ((PushAuthRequest) -> Void)?
-    
     /// Callback that gets called when this instance receives a general user notification.
     var generalNotificationHandler: ((UNNotification) -> Void)?
-    
     /// Callback that gets called when this instance gets any error.
     var errorHandler: ((Error) -> Void)?
     
@@ -41,13 +37,16 @@ class UserNotificationObserver: NSObject {
         userNotificationCenter.delegate = self
     }
     
-    /// Requests current user's permission for current app to receive remote notifications.
-    /// - note: Upon proper request, the app might receive device token in UIApplicationDelegate's `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`.
-    ///         Please pass the received token string to this instance's `registerDeviceTokenForNotification(deviceToken:)` method.
-    func requestUserNotificationPermission() {
-        userNotificationCenter.getNotificationSettings { [weak self] settings in
-            DispatchQueue.main.async {
-                self?.setupUserNotification(basedOn: settings)
+    /// Requests the pending PushAuth requests to the server, which will trigger this instance's `pushAuthRequestHandler`.
+    func requestPendingPushAuthRequests() {
+        unifyID.pushAuth.getPendingAuthenticationRequests { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.errorHandler?(error)
+            case .success(let pendingRequests):
+                for request in pendingRequests {
+                    self?.pushAuthRequestHandler?(request)
+                }
             }
         }
     }
@@ -55,7 +54,6 @@ class UserNotificationObserver: NSObject {
     /// Registers the passed `deviceToken` so current app could receive proper PushAuth notifications.
     /// - note: The given `deviceToken` should come from UIApplicationDelegate's `application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` method.
     func registerDeviceTokenForNotification(deviceToken: String) {
-        
         unifyID.pushAuth.registerPushToken(deviceToken) { [weak self] (error: PushAuthError?) in
             guard let validError = error else {
                 return
@@ -68,43 +66,12 @@ class UserNotificationObserver: NSObject {
         }
     }
     
-    // MARK: - Private methods
-    
-    private func setupUserNotification(basedOn settings: UNNotificationSettings) {
-        
-        switch (settings.alertSetting) {
-        case .enabled:
-            UIApplication.shared.registerForRemoteNotifications()
-            
-        case .disabled, .notSupported:
-            
-            userNotificationCenter
-                .requestAuthorization(options: [.sound, .alert]) { [weak self] (authorized, error) in
-                    
-                    if let validError = error {
-                        let wrappingError = UserNotificationObserverError.notificationAuthorizationFailed(underlyingError: validError)
-                        
-                        self?.errorHandler?(wrappingError)
-                        log(wrappingError.localizedDescription)
-                        
-                    } else if !authorized {
-                        let unauthorizedError = UserNotificationObserverError.notificationUnauthorized
-                        self?.errorHandler?(unauthorizedError)
-                        log(unauthorizedError.localizedDescription)
-                        
-                    } else {
-                        self?.requestUserNotificationPermission() // check if it's enabled now.
-                    }
-            }
-            
-        @unknown default:
-            let unknownError = UserNotificationObserverError.notificationSettingsUnknown
-            
-            self.errorHandler?(unknownError)
-            log(unknownError.localizedDescription)
-        }
+    /// De-registers all blocks that used as handlers of this instance.
+    func deregisterHandlers() {
+        pushAuthRequestHandler = nil
+        generalNotificationHandler = nil
+        errorHandler = nil        
     }
-    
 }
 
 // MARK: - UNUserNotificationCenterDelegate extension
@@ -139,8 +106,7 @@ extension UserNotificationObserver: UNUserNotificationCenterDelegate {
         case .unknown:
             pushAuthRequestHandler?(pushAuthRequest)
             
-        case .accept, .decline: // User responding to a notification
-            
+        case .accept, .decline: // User responding to a notification            
             pushAuthRequest.respond(pushAuthResponse) { (error: PushAuthError?) in
                 
                 guard let validError = error else {

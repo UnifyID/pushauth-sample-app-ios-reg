@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260824905C22002F5714 /* UnifyConfigurationStore.swift */; };
 		554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E260A24905C64002F5714 /* UserNotificationObserver.swift */; };
+		5552FC80249D4BF400696C4B /* OnboardingConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552FC7F249D4BF400696C4B /* OnboardingConfigViewController.swift */; };
+		5552FC82249D4F1400696C4B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552FC81249D4F1400696C4B /* BaseViewController.swift */; };
+		5552FC84249D53D100696C4B /* OnboardingPushNotifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552FC83249D53D100696C4B /* OnboardingPushNotifViewController.swift */; };
+		5552FC87249DB9B100696C4B /* UIViewController+ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552FC86249DB9B100696C4B /* UIViewController+ErrorAlert.swift */; };
 		5573DB0D24919B8700E2CFB8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB0C24919B8700E2CFB8 /* Log.swift */; };
 		5573DB1024919CF700E2CFB8 /* UserNotificationObserverError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */; };
 		5573DB122491AE6C00E2CFB8 /* HomeViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573DB112491AE6C00E2CFB8 /* HomeViewControllerError.swift */; };
@@ -18,12 +22,19 @@
 		55D2761F248ED414005ADD06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55D2761E248ED414005ADD06 /* Assets.xcassets */; };
 		55D27622248ED414005ADD06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D27620248ED414005ADD06 /* LaunchScreen.storyboard */; };
 		55D2762A248EEEC4005ADD06 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D27629248EEEC4005ADD06 /* ConfigViewController.swift */; };
+		55E19A0424A1247F00A5B146 /* UnifyConfigurationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E19A0324A1247F00A5B146 /* UnifyConfigurationError.swift */; };
+		55E19A0624A131E600A5B146 /* NotificationAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E19A0524A131E600A5B146 /* NotificationAuthError.swift */; };
+		55E19A0824A14A3D00A5B146 /* InitialRoutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E19A0724A14A3D00A5B146 /* InitialRoutingViewController.swift */; };
 		70E133F9C3B8E29AF846FCEE /* Pods_PushAuthSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79DA6D4D84CCAC5697EB772 /* Pods_PushAuthSample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		554E260824905C22002F5714 /* UnifyConfigurationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnifyConfigurationStore.swift; sourceTree = "<group>"; };
 		554E260A24905C64002F5714 /* UserNotificationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationObserver.swift; sourceTree = "<group>"; };
+		5552FC7F249D4BF400696C4B /* OnboardingConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingConfigViewController.swift; sourceTree = "<group>"; };
+		5552FC81249D4F1400696C4B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5552FC83249D53D100696C4B /* OnboardingPushNotifViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPushNotifViewController.swift; sourceTree = "<group>"; };
+		5552FC86249DB9B100696C4B /* UIViewController+ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ErrorAlert.swift"; sourceTree = "<group>"; };
 		5573DB0B2491565D00E2CFB8 /* PushAuth Sample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "PushAuth Sample.entitlements"; sourceTree = "<group>"; };
 		5573DB0C24919B8700E2CFB8 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationObserverError.swift; sourceTree = "<group>"; };
@@ -36,6 +47,9 @@
 		55D27621248ED414005ADD06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55D27623248ED414005ADD06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D27629248EEEC4005ADD06 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		55E19A0324A1247F00A5B146 /* UnifyConfigurationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifyConfigurationError.swift; sourceTree = "<group>"; };
+		55E19A0524A131E600A5B146 /* NotificationAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuthError.swift; sourceTree = "<group>"; };
+		55E19A0724A14A3D00A5B146 /* InitialRoutingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoutingViewController.swift; sourceTree = "<group>"; };
 		B72B887C7C1F64471DB6E283 /* Pods-PushAuthSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushAuthSample.debug.xcconfig"; path = "Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample.debug.xcconfig"; sourceTree = "<group>"; };
 		C79DA6D4D84CCAC5697EB772 /* Pods_PushAuthSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushAuthSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11D56C5E96215D6093C12A3 /* Pods-PushAuthSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushAuthSample.release.xcconfig"; path = "Target Support Files/Pods-PushAuthSample/Pods-PushAuthSample.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,11 +84,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5552FC85249DB95600696C4B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5552FC86249DB9B100696C4B /* UIViewController+ErrorAlert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5552FC8A249DC63600696C4B /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				5573DB0C24919B8700E2CFB8 /* Log.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		5573DB0E24919CDD00E2CFB8 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 				5573DB112491AE6C00E2CFB8 /* HomeViewControllerError.swift */,
 				5573DB0F24919CF700E2CFB8 /* UserNotificationObserverError.swift */,
+				55E19A0324A1247F00A5B146 /* UnifyConfigurationError.swift */,
+				55E19A0524A131E600A5B146 /* NotificationAuthError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -103,13 +135,18 @@
 				5573DB0B2491565D00E2CFB8 /* PushAuth Sample.entitlements */,
 				55D27623248ED414005ADD06 /* Info.plist */,
 				55D27615248ED413005ADD06 /* AppDelegate.swift */,
+				5552FC81249D4F1400696C4B /* BaseViewController.swift */,
 				55D27629248EEEC4005ADD06 /* ConfigViewController.swift */,
 				55D27619248ED413005ADD06 /* HomeViewController.swift */,
-				5573DB0C24919B8700E2CFB8 /* Log.swift */,
+				55E19A0724A14A3D00A5B146 /* InitialRoutingViewController.swift */,
+				5552FC7F249D4BF400696C4B /* OnboardingConfigViewController.swift */,
+				5552FC83249D53D100696C4B /* OnboardingPushNotifViewController.swift */,
 				554E260824905C22002F5714 /* UnifyConfigurationStore.swift */,
 				554E260A24905C64002F5714 /* UserNotificationObserver.swift */,
 				55D2761E248ED414005ADD06 /* Assets.xcassets */,
 				5573DB0E24919CDD00E2CFB8 /* Errors */,
+				5552FC85249DB95600696C4B /* Extensions */,
+				5552FC8A249DC63600696C4B /* Logger */,
 				55D27620248ED414005ADD06 /* LaunchScreen.storyboard */,
 				55D2761B248ED413005ADD06 /* Main.storyboard */,
 			);
@@ -232,11 +269,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				554E260924905C22002F5714 /* UnifyConfigurationStore.swift in Sources */,
+				5552FC80249D4BF400696C4B /* OnboardingConfigViewController.swift in Sources */,
+				5552FC84249D53D100696C4B /* OnboardingPushNotifViewController.swift in Sources */,
 				5573DB0D24919B8700E2CFB8 /* Log.swift in Sources */,
 				5573DB122491AE6C00E2CFB8 /* HomeViewControllerError.swift in Sources */,
+				55E19A0824A14A3D00A5B146 /* InitialRoutingViewController.swift in Sources */,
 				55D2761A248ED413005ADD06 /* HomeViewController.swift in Sources */,
+				55E19A0424A1247F00A5B146 /* UnifyConfigurationError.swift in Sources */,
+				5552FC87249DB9B100696C4B /* UIViewController+ErrorAlert.swift in Sources */,
+				5552FC82249D4F1400696C4B /* BaseViewController.swift in Sources */,
 				554E260B24905C64002F5714 /* UserNotificationObserver.swift in Sources */,
 				5573DB1024919CF700E2CFB8 /* UserNotificationObserverError.swift in Sources */,
+				55E19A0624A131E600A5B146 /* NotificationAuthError.swift in Sources */,
 				55D27616248ED413005ADD06 /* AppDelegate.swift in Sources */,
 				55D2762A248EEEC4005ADD06 /* ConfigViewController.swift in Sources */,
 			);
@@ -384,7 +428,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "PushAuthSample/PushAuth Sample.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development: Build Bot (5T5TWBVRTG)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SBD89XZSYG;
 				INFOPLIST_FILE = PushAuthSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -394,6 +439,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.unify.PushAuthSample;
 				PRODUCT_NAME = "PushAuth Sample";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development id.unify.PushAuthSample";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -405,7 +451,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "PushAuthSample/PushAuth Sample.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Distribution: UnifyID Inc. (SBD89XZSYG)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SBD89XZSYG;
 				INFOPLIST_FILE = PushAuthSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -415,6 +462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = id.unify.PushAuthSample;
 				PRODUCT_NAME = "PushAuth Sample";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc id.unify.PushAuthSample";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

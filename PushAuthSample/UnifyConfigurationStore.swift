@@ -7,13 +7,13 @@
 import Foundation
 
 /// Static storage for UnifyID-related configuration.
-/// - note: This class uses a simple storage for implementation, you might want to have a better one in your app.
+/// - note: This class uses a simple storage for implementation, you might want to have a more secure one in your app.
 class UnifyConfigurationStore {
     
     // MARK: - Custom enum
     
     enum Key {
-        case sdkKey, user
+        case sdkKey, user, deviceToken
     }
     
     // MARK: - Private properties
@@ -41,6 +41,7 @@ class UnifyConfigurationStore {
         switch key {
         case .sdkKey: return "sdk_key"
         case .user: return "user"
+        case .deviceToken: return "deviceToken"
         }
     }
     

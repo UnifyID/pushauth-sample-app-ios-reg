@@ -3,5 +3,4 @@ ${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework
 ${BUILT_PRODUCTS_DIR}/Sodium/Sodium.framework
 ${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework
 ${PODS_ROOT}/UnifyID-Core/UnifyID.framework
-${PODS_ROOT}/UnifyID-HumanDetect/HumanDetect.framework
 ${PODS_ROOT}/UnifyID-PushAuth/PushAuth.framework

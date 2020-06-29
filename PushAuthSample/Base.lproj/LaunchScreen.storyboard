@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,15 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnifyID-reverse-notrademark" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-TZ-cuS">
-                                <rect key="frame" x="30" y="369.5" width="354" height="167"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMx-oP-84E">
+                                <rect key="frame" x="0.0" y="349.5" width="414" height="207"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnifyID-reverse-notrademark" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-TZ-cuS">
+                                        <rect key="frame" x="20" y="20" width="374" height="167"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cIe-TZ-cuS" firstAttribute="leading" secondItem="LMx-oP-84E" secondAttribute="leading" constant="20" id="56c-pP-eAn"/>
+                                    <constraint firstAttribute="bottom" secondItem="cIe-TZ-cuS" secondAttribute="bottom" constant="20" id="74g-yv-F1P"/>
+                                    <constraint firstAttribute="trailing" secondItem="cIe-TZ-cuS" secondAttribute="trailing" constant="20" id="nwi-pq-qhD"/>
+                                    <constraint firstItem="cIe-TZ-cuS" firstAttribute="top" secondItem="LMx-oP-84E" secondAttribute="top" constant="20" id="uEM-FM-4N8"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" name="Background Color"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="cIe-TZ-cuS" secondAttribute="leading" constant="-30" id="H8x-vO-oDU"/>
-                            <constraint firstItem="cIe-TZ-cuS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Jlm-Kd-NjH"/>
-                            <constraint firstItem="cIe-TZ-cuS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-30" id="wlh-fz-Rfp"/>
+                            <constraint firstItem="LMx-oP-84E" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="J5o-ag-jv8"/>
+                            <constraint firstItem="LMx-oP-84E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rgc-k4-s7y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LMx-oP-84E" secondAttribute="trailing" id="ePQ-01-R8t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,8 +48,5 @@
     </scenes>
     <resources>
         <image name="UnifyID-reverse-notrademark" width="776" height="167"/>
-        <namedColor name="Background Color">
-            <color red="0.4392156862745098" green="0.62352941176470589" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

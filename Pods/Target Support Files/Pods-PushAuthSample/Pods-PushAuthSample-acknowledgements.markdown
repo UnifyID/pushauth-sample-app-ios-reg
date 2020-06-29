@@ -265,10 +265,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 See https://unify.id/terms
 
-## UnifyID-HumanDetect
-
-See https://unify.id/terms
-
 ## UnifyID-PushAuth
 
 See https://unify.id/terms

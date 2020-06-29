@@ -201,7 +201,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Sodium/Sodium.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework"
   install_framework "${PODS_ROOT}/UnifyID-Core/UnifyID.framework"
-  install_framework "${PODS_ROOT}/UnifyID-HumanDetect/HumanDetect.framework"
   install_framework "${PODS_ROOT}/UnifyID-PushAuth/PushAuth.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -209,7 +208,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Sodium/Sodium.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework"
   install_framework "${PODS_ROOT}/UnifyID-Core/UnifyID.framework"
-  install_framework "${PODS_ROOT}/UnifyID-HumanDetect/HumanDetect.framework"
   install_framework "${PODS_ROOT}/UnifyID-PushAuth/PushAuth.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
