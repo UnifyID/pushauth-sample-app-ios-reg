@@ -37,7 +37,7 @@ Run the app to your iPhone. Input your SDK key along with a "user" string to con
 
 ```
 curl -H 'accept: application/json' \
--H "x-api-key: $UNIFY_API_KEY" \
+-H "x-api-key: $UNIFYID_API_KEY" \
 --data '{
 "notification":{
   "title":"A Test Push Notification",
@@ -48,6 +48,10 @@ curl -H 'accept: application/json' \
 --request POST https://api.dev.unify.id/v1/push/sessions
 ```
 
-The `UNIFY_API_KEY` represents the API key you have created. The `<session_user>` represents the "user" string value you inputted in the app.
+The `UNIFYID_API_KEY` represents the API key you have created. The `<session_user>` represents the "user" string value you inputted in the app.
+
+## Copyright
+
+This project is MIT licensed. Please read the [LICENSE](LICENSE) file for further details.
 
 Copyright © 2020 UnifyID, Inc. All rights reserved.
