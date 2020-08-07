@@ -67,6 +67,7 @@ class HomeViewController: BaseViewController {
         do {
             unifyID = try UnifyID(sdkKey: sdkKey, user: user, challenge: "")
         } catch {
+            log("Failed to create UnifyID, error: \(error)")
             let wrappingError = HomeViewControllerError.unifyIDCreationFailed(underlyingError: error)
             presentAlert(for: wrappingError)
             return
@@ -144,9 +145,9 @@ class HomeViewController: BaseViewController {
         
         switch result {
         case .failure(let error):
-            let wrappingError = HomeViewControllerError.pushAuthAlertFailed(underlyingError: error)
+            log("Failed to present alert for PushAuth request, error: \(error)")
+            let wrappingError = HomeViewControllerError.pushAuthRespondFailed(underlyingError: error)
             self.presentAlert(for: wrappingError)
-            
         case .success(let response):
             log("Successfully handled push auth as alert, user's response: \(response)")
         }

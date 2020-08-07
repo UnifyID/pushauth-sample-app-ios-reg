@@ -10,30 +10,24 @@ import UnifyID
 import PushAuth
 
 /// Error that might happen in HomeViewController.
+/// - note: The `localizedDescription` values of these enums are user-readable String.
+/// Please unwrap the `underlyingError` for each enum case to get the details for debugging.
 enum HomeViewControllerError: Error {
-    
     // MARK: - Enum cases
         
     /// Failed to create UnifyID object.
     case unifyIDCreationFailed(underlyingError: Error)
-    /// Failed to present PushAuthRequest as an alert.
-    case pushAuthAlertFailed(underlyingError: Error)
+    /// Failed to respond to a PushAuthRequest.
+    case pushAuthRespondFailed(underlyingError: Error)
     
     // MARK: - Description
     
     var localizedDescription: String {
         switch self {
-        case .unifyIDCreationFailed(let underlyingError):
-            guard let unifyIDError = underlyingError as? UnifyIDError else {
-                return "Failed to create UnifyID: \(underlyingError.localizedDescription)"
-            }
-            return unifyIDError.localizedDescription
-            
-        case .pushAuthAlertFailed(let underlyingError):
-            guard let pushAuthError = underlyingError as? PushAuthError else {
-                return "Error when presenting PushAuth request as alert: \(underlyingError.localizedDescription)"
-            }
-            return pushAuthError.localizedDescription
+        case .unifyIDCreationFailed(_):
+            return "Failed to create UnifyID."
+        case .pushAuthRespondFailed(_):
+            return "Unable to respond to the PushAuth request."
         }
     }        
 }
