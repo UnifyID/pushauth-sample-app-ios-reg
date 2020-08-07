@@ -59,10 +59,9 @@ class UserNotificationObserver: NSObject {
                 return
             }
             
+            log("Failed to register device token for PushAuth, error: \(validError)")
             let wrappingError = UserNotificationObserverError.deviceTokenRegistrationFailed(underlyingError: validError)
-            
             self?.errorHandler?(wrappingError)
-            log(wrappingError.localizedDescription)
         }
     }
     
@@ -105,21 +104,17 @@ extension UserNotificationObserver: UNUserNotificationCenterDelegate {
         switch pushAuthResponse {
         case .unknown:
             pushAuthRequestHandler?(pushAuthRequest)
-            
-        case .accept, .decline: // User responding to a notification            
+        case .accept, .decline: // User responding to a notification
             pushAuthRequest.respond(pushAuthResponse) { (error: PushAuthError?) in
-                
                 guard let validError = error else {
                     log("Succeeded asking user's response to push auth: \(pushAuthResponse)")
                     return
                 }
-                                
-                let wrappingError = UserNotificationObserverError.pushAuthResponseFailed(underlyingError: validError)
+                log("Failed to send response to PushAuth request, error: \(validError)")
                 
+                let wrappingError = UserNotificationObserverError.pushAuthResponseFailed(underlyingError: validError)
                 self.errorHandler?(wrappingError)
-                log(wrappingError.localizedDescription)
             }
-            
         @unknown default:
             let unknownError = UserNotificationObserverError.pushAuthResponseUnknown
             

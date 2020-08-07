@@ -92,15 +92,12 @@ class OnboardingPushNotifViewController: BaseViewController {
                     }
                     
                     if let validError = error {
+                        log("Failed to authorize for receiving push notificaiton, error: \(validError)")
                         let wrappingError = NotificationAuthError.failed(underlyingError: validError)
-                        
                         self.handleError(wrappingError)
-                        
                     } else if !authorized {
                         let unauthorizedError = NotificationAuthError.denied
-                        
                         self.handleError(unauthorizedError)
-                                                
                     } else {
                         self.requestPushNotifAuthorization(self) // check if it's enabled now.
                     }

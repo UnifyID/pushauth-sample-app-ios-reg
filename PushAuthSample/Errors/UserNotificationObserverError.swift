@@ -9,6 +9,8 @@ import Foundation
 import PushAuth
 
 /// Holds error that might received by the UserNotificationObserver.
+/// - note: The `localizedDescription` values of these enums are user-readable String.
+/// Please unwrap the `underlyingError` for each enum case to get the details for debugging.
 enum UserNotificationObserverError: Error {
     
     // MARK: - Enum cases
@@ -24,18 +26,10 @@ enum UserNotificationObserverError: Error {
     
     var localizedDescription: String {
         switch self {
-        case .deviceTokenRegistrationFailed(let underlyingError):
-            guard let pushAuthError = underlyingError as? PushAuthError else {
-                return "Failed to register device token: \(underlyingError.localizedDescription)"
-            }
-            return pushAuthError.localizedDescription
-            
-        case .pushAuthResponseFailed(let underlyingError):
-            guard let pushAuthError = underlyingError as? PushAuthError else {
-                return "Failed to retrieve response for PushAuth request from user: \(underlyingError.localizedDescription)"
-            }
-            return pushAuthError.localizedDescription
-            
+        case .deviceTokenRegistrationFailed(_):
+            return "Failed to register device token, please restart the app to try again."
+        case .pushAuthResponseFailed(_):
+            return "Unable to respond to the PushAuth request."
         case .pushAuthResponseUnknown:
             return "Unknown response found for the PushAuth request."
         }

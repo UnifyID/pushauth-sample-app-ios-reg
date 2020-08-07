@@ -7,10 +7,10 @@
 import Foundation
 
 /// Holds error related to authorization of app's Push Notification capability.
+/// - note: The `localizedDescription` values of these enums are user-readable String.
+/// When avialable, please unwrap the `underlyingError` for each enum case to get the details for debugging.
 enum NotificationAuthError: Error {
-    
     // MARK: - Enum cases
-    
     /// User denies authorization for the app to receive push notification.
     case denied
     /// Authorization process for push notification failed for anything else than user's response.
@@ -18,16 +18,15 @@ enum NotificationAuthError: Error {
     /// Unknown push notification settings after asking for user's authorization.
     case unknownSettings
     
-    // MARK: - Description
-    
+    // MARK: - Description    
     var localizedDescription: String {
         switch self {
         case .denied:
             return "Push notification authorization denied. Please go to Settings > PushAuth Sample > Notifications and allow the app to receive notifications."
         case .unknownSettings:
-            return "Unknown settings found for Push Notification."            
-        case .failed(let underlyingError):
-            return "Failed to authorize for receiving push notification: \(underlyingError.localizedDescription)"
+            return "Unknown settings found for Push Notification."
+        case .failed(_):
+            return "Failed to authorize for receiving push notification. Please kill the app to try again."
         }
     }
 }
