@@ -13,6 +13,7 @@ class ConfigViewController: UIViewController {
     
     @IBOutlet private weak var sdkKeyTextField: UITextField!
     @IBOutlet private weak var userTextField: UITextField!
+    @IBOutlet private weak var pairingCodeTextField: UITextField!
     
     // MARK: - UIViewController
     
@@ -32,7 +33,8 @@ class ConfigViewController: UIViewController {
     @IBAction private func applyNewConfiguration(_ sender: Any) {
         let sdkKey = sdkKeyTextField?.text
         let user = userTextField?.text
-        let validationResult = validatePushAuthConfig(sdkKey: sdkKey, user: user)
+        let pairingCode = pairingCodeTextField?.text
+        let validationResult = validatePushAuthConfig(sdkKey: sdkKey, user: user, pairingCode: pairingCode)
         
         if case .failure(let error) = validationResult {
             presentAlert(for: error)
@@ -53,24 +55,38 @@ class ConfigViewController: UIViewController {
         }
     }
     
-    private func validatePushAuthConfig(sdkKey: String?, user: String?) -> Result<Void,Error> {
-        let emptySDKKey = sdkKey == nil || sdkKey == ""
+    private func validatePushAuthConfig(sdkKey: String?, user: String?, pairingCode: String?) -> Result<Void,Error> {
         let emptyUser = user == nil || user == ""
+        let emptySDKKey = sdkKey == nil || sdkKey == ""
+        let emptyPairingCode = pairingCode == nil || pairingCode == ""
         
-        if emptyUser && emptySDKKey {
+        switch (emptyUser, emptySDKKey, emptyPairingCode) {
+        case (true, true, true):
+            return .failure(UnifyConfigurationError.allConfigurationsEmpty)
+        case (true, true, false):
             return .failure(UnifyConfigurationError.emptyUserAndSDKKey)
-        } else if emptyUser {
+        case (true, false, true):
+            return .failure(UnifyConfigurationError.emptyUserAndPairingCode)
+        case (false, true, true):
+            return .failure(UnifyConfigurationError.emptySDKKeyAndPairingCode)
+        case (true, false, false):
             return .failure(UnifyConfigurationError.emptyUser)
-        } else if emptySDKKey {
+        case (false, true, false):
             return .failure(UnifyConfigurationError.emptySDKKey)
+        case (false, false, true):
+            return .failure(UnifyConfigurationError.emptyPairingCode)
+        case (false, false, false):
+            break            
         }
         
-        guard let nonEmptyKey = sdkKey, let nonEmptyUser = user else {
-            return .failure(UnifyConfigurationError.emptyUserAndSDKKey)
+        guard let nonEmptyKey = sdkKey,
+            let nonEmptyUser = user,
+            let nonEmptyPairingCode = pairingCode else {
+            return .failure(UnifyConfigurationError.allConfigurationsEmpty)
         }
         
         do {
-            let _ = try UnifyID(sdkKey: nonEmptyKey, user: nonEmptyUser, challenge: "")
+            let _ = try UnifyID(sdkKey: nonEmptyKey, user: nonEmptyUser, challenge: nonEmptyPairingCode)
             return .success(())
         } catch {
             return .failure(error)
