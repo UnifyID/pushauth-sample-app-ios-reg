@@ -1,3 +1,4 @@
+platform :ios, '12.0'
 
 target 'PushAuthSample' do
   use_frameworks!

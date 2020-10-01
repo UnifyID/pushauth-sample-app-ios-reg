@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/UnifyID-Core/UnifyID-Core-xcframeworks.sh
+${PODS_ROOT}/UnifyID-Core/UnifyID.xcframework
+${PODS_ROOT}/UnifyID-Core/Clibsodium.xcframework
+${PODS_ROOT}/UnifyID-Core/SwiftProtobuf.xcframework

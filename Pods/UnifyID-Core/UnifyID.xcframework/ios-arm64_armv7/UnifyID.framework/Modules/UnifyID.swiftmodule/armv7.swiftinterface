@@ -1,0 +1,55 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name UnifyID
+import Clibsodium
+import CommonCrypto
+import Compression
+import Foundation
+import Security
+import Swift
+import UIKit
+@objc public class UnifyID : ObjectiveC.NSObject {
+  public static let installID: Swift.String
+  public typealias SuccessCallback<T> = (T?) -> Swift.Void where T : Swift.Error
+  public typealias Callback<Success, Failure> = (Swift.Result<Success, Failure>) -> Swift.Void where Failure : Swift.Error
+  public static var version: Swift.String {
+    get
+  }
+  public var clientID: Swift.String? {
+    get
+  }
+  final public let sdkKey: Foundation.URL
+  final public let user: Swift.String
+  public struct Options {
+    public enum Diagnostics {
+      case disabled
+      case lowPriority
+      case realTime
+      public static func == (a: UnifyID.Options.Diagnostics, b: UnifyID.Options.Diagnostics) -> Swift.Bool
+      public var hashValue: Swift.Int {
+        get
+      }
+      public func hash(into hasher: inout Swift.Hasher)
+    }
+    public let diagnostics: UnifyID.Options.Diagnostics
+    public init(diagnostics: UnifyID.Options.Diagnostics = .lowPriority)
+  }
+  public var options: UnifyID.Options {
+    get
+    set
+  }
+  required public init(sdkKey: Swift.String, user: Swift.String? = nil, challenge: Swift.String = "", options: UnifyID.Options? = nil) throws
+  @objc deinit
+  @objc override dynamic public init()
+}
+public enum UnifyIDError : Foundation.LocalizedError {
+  case invalidKey(_: Swift.String)
+  case invalidUser(_: Swift.String)
+  case initializationFailed(_: Swift.String)
+  case deviceRegistrationFailed(_: Swift.String)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension UnifyID.Options.Diagnostics : Swift.Equatable {}
+extension UnifyID.Options.Diagnostics : Swift.Hashable {}
