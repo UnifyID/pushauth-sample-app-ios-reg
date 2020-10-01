@@ -14,6 +14,7 @@ class HomeViewController: BaseViewController {
     // MARK: - Private properties
     
     @IBOutlet private weak var userLabel: UILabel!
+    private var showingNofiticationIDs: Array<String> = []
     
     /// Observer for incoming user notification, including PushAuthRequest notifications.
     private var userNotificationObserver: UserNotificationObserver? {
@@ -33,7 +34,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)        
+        super.viewDidAppear(animated)
         checkPushNotifAuthorization()
     }
     
@@ -133,10 +134,15 @@ class HomeViewController: BaseViewController {
         
     private func presentPushAuthRequest(_ request: PushAuthRequest) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
-        
-        request.presentAsAlert(self) { [weak self] result in
-            DispatchQueue.main.async {
-                self?.handlePushAuthResult(result)
+        if !showingNofiticationIDs.contains(request.notificationID) {
+            showingNofiticationIDs.append(request.notificationID)
+            request.presentAsAlert(self) { [weak self] result in
+                DispatchQueue.main.async {
+                    self?.handlePushAuthResult(result)
+                    while let idx = self?.showingNofiticationIDs.firstIndex(of:request.notificationID) {
+                        self?.showingNofiticationIDs.remove(at: idx)
+                    }
+                }
             }
         }
     }
