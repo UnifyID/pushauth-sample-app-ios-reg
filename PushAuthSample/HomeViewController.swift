@@ -56,8 +56,9 @@ class HomeViewController: BaseViewController {
     /// Please make sure it has the correct value beforehand, e.g. by assigning it from ConfigViewController.
     private func setupUserNotificationObserver() {
         guard let sdkKey = UnifyConfigurationStore.getConfig(key: .sdkKey),
-            let user = UnifyConfigurationStore.getConfig(key: .user) else {
-                let error = UnifyConfigurationError.emptyUserAndSDKKey
+            let user = UnifyConfigurationStore.getConfig(key: .user),
+            let pairingCode = UnifyConfigurationStore.getConfig(key: .pairingCode) else {
+                let error = UnifyConfigurationError.allConfigurationsEmpty
                 presentAlert(for: error)
                 return
         }
@@ -65,7 +66,7 @@ class HomeViewController: BaseViewController {
         let unifyID: UnifyID
         
         do {
-            unifyID = try UnifyID(sdkKey: sdkKey, user: user, challenge: "")
+            unifyID = try UnifyID(sdkKey: sdkKey, user: user, challenge: pairingCode)
         } catch {
             log("Failed to create UnifyID, error: \(error)")
             let wrappingError = HomeViewControllerError.unifyIDCreationFailed(underlyingError: error)

@@ -22,6 +22,7 @@ class ConfigViewController: UIViewController {
         
         sdkKeyTextField.text = UnifyConfigurationStore.getConfig(key: .sdkKey)
         userTextField.text = UnifyConfigurationStore.getConfig(key: .user)
+        pairingCodeTextField.text = UnifyConfigurationStore.getConfig(key: .pairingCode)
     }
     
     // MARK: - IBActions
@@ -44,6 +45,7 @@ class ConfigViewController: UIViewController {
         // At this point, the sdk key and user must be valid - they're not empty.
         UnifyConfigurationStore.setConfig(key: .sdkKey, value: sdkKey!)
         UnifyConfigurationStore.setConfig(key: .user, value: user!)
+        UnifyConfigurationStore.setConfig(key: .pairingCode, value: pairingCode!)
                 
         let presentingVC = presentingViewController
         

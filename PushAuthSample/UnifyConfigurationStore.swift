@@ -13,7 +13,7 @@ class UnifyConfigurationStore {
     // MARK: - Custom enum
     
     enum Key {
-        case sdkKey, user, deviceToken
+        case sdkKey, user, deviceToken, pairingCode
     }
     
     // MARK: - Private properties
@@ -42,6 +42,7 @@ class UnifyConfigurationStore {
         case .sdkKey: return "sdk_key"
         case .user: return "user"
         case .deviceToken: return "deviceToken"
+        case .pairingCode: return "pairingCode"
         }
     }
     
