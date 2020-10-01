@@ -1,0 +1,93 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PushAuth
+import Clibsodium
+import CommonCrypto
+import Compression
+import CoreLocation
+import CoreTelephony
+import Foundation
+import LocalAuthentication
+import Security
+import Swift
+import SwiftProtobuf
+import UIKit
+import UnifyID
+import UserNotifications
+@_hasMissingDesignatedInitializers public class Analytics {
+  @objc deinit
+}
+extension UnifyID {
+  public var pushAuth: PushAuth {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PushAuth {
+  public static var version: Swift.String {
+    get
+  }
+  public func registerPushToken(_ tokenString: Swift.String, completion: @escaping ___TemporaryModulePlaceholder___SuccessCallback<PushAuthError>)
+  public func registerPushToken(_ token: Foundation.Data, completion: @escaping ___TemporaryModulePlaceholder___SuccessCallback<PushAuthError>)
+  public func deregister(completion: @escaping ___TemporaryModulePlaceholder___SuccessCallback<PushAuthError>)
+  public func getPendingAuthenticationRequests(completion: @escaping ___TemporaryModulePlaceholder___Callback<[PushAuthRequest], PushAuthError>)
+  public func pushAuthRequest(_ notification: UserNotifications.UNNotification) -> PushAuthRequest?
+  public func pushAuthRequest(_ response: UserNotifications.UNNotificationResponse) -> PushAuthRequest?
+  @objc deinit
+}
+public protocol PushAuthResponse {
+  var responseCode: Swift.Int { get }
+  var detail: Swift.String? { get }
+}
+public enum UserResponse : PushAuthResponse {
+  public var responseCode: Swift.Int {
+    get
+  }
+  public var detail: Swift.String? {
+    get
+  }
+  case accept
+  case decline
+  case unknown
+  public static func == (a: UserResponse, b: UserResponse) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum DirectResponse : PushAuthResponse {
+  public var responseCode: Swift.Int {
+    get
+  }
+  public var detail: Swift.String? {
+    get
+  }
+  case accept(_: Swift.String? = nil)
+  case reject(_: Swift.String? = nil)
+  case error(_: Swift.String? = nil)
+}
+@_hasMissingDesignatedInitializers public class PushAuthRequest {
+  final public let notificationID: Swift.String
+  final public let userResponse: UserResponse
+  final public let title: Swift.String
+  final public let subtitle: Swift.String?
+  final public let body: Swift.String
+  final public let payload: Swift.String?
+  public func respond(_ response: PushAuthResponse, completion: @escaping ___TemporaryModulePlaceholder___SuccessCallback<PushAuthError>)
+  public func presentAsAlert(_ presentingViewController: UIKit.UIViewController, completion: ___TemporaryModulePlaceholder___Callback<UserResponse, PushAuthError>? = nil)
+  @objc deinit
+}
+public enum PushAuthError : Foundation.LocalizedError {
+  case unableToRegisterPushToken(_: Swift.Error)
+  case unableToRetrievePending(_: Swift.Error)
+  case unableToSendPushAuthResponse(_: PushAuthResponse, underlying: Swift.Error)
+  case unableToDeregister(_: Swift.Error)
+  case challengeRequired
+  case notEnabled
+  case cancelled
+  case userRequired
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension UserResponse : Swift.Equatable {}
+extension UserResponse : Swift.Hashable {}
